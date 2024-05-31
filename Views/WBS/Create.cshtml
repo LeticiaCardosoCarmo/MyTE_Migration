@@ -1,0 +1,127 @@
+﻿@model MyTE_Migration.Models.WBS
+
+@{
+    ViewData["Title"] = "Adicionar WBS";
+}
+<head>
+    <link rel="stylesheet" href="~/css/WBS.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<header>
+    <link rel="stylesheet" href="~/css/Header.css" asp-append-version="true" />
+    <div class="header">
+        <div class="usuario-funcao">Administradora</div>
+        <div class="usuario">Letícia Cardoso</div>
+        <div class="usuario-email">leticia@avanacle.com</div>
+        <img src="~/images/icones/profile-2.svg" class="icone-usuario" />
+        <img src="~/images/avanacle-logo.png" class="avanacle-logo" />
+    </div>
+</header>
+
+<body>
+
+    <div class="container">
+
+        <aside class="sidebar">
+
+
+            <nav class="nav-nav">
+
+                <div class="ola">Olá, Administrador!</div>
+
+                <ul class="container-nav nav nav-pills flex-column mt-2">
+
+                    <li class="nav-item-lista">
+
+                        <a href="#" class="text-secondary text-decoration-none">
+
+                            <i class="nav-bi bi-clock"></i>Lançamento de horas
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item-lista">
+
+                        <a asp-controller="Funcionario" asp-action="Index" class="text-secondary text-decoration-none">
+
+                            <i class="nav-bi bi-person"></i>Gerenciar funcionários
+
+                        </a>
+
+                    </li>
+                    <li class="nav-item-lista">
+
+                        <a asp-controller="Departamento" asp-action="Index" class="text-secondary text-decoration-none">
+
+                            <i class="nav-bi bi-folder"></i>Gerenciar departamentos
+
+                        </a>
+
+                    </li>
+
+
+
+                    <li class="nav-item-lista">
+
+                        <a asp-controller="WBS" asp-action="Index" class="text-secondary text-decoration-none">
+
+                            <i class="nav-bi bi-gear"></i>Gerenciar WBS
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <a asp-controller="Home" asp-action="Index" class="logout"> Sair </a>
+
+        </aside>
+        @*
+        <h1>Create</h1>
+
+        <h4>WBS</h4>
+        <hr /> *@
+        <main class="main-content">
+            <section class="content">
+                <div class="form-container">
+                    <div class="row">
+                        @*<div class="col-md-4">*@
+                        <form asp-action="Create">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="WBS_Codigo" class="control-label">Código</label>
+                                <input asp-for="WBS_Codigo" class="form-control" />
+                                <span asp-validation-for="WBS_Codigo" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="WBS_Descricao" class="control-label">Descrição</label>
+                                <input asp-for="WBS_Descricao" class="form-control" />
+                                <span asp-validation-for="WBS_Descricao" class="text-danger"></span>
+                            </div>
+                            <div class="form-group form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" asp-for="WBS_Tipo" /> Chargeability @*@Html.DisplayNameFor(model => model.WBS_Tipo)*@
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Salvar" class="save" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                @* <div>
+                <a asp-action="Index">Back to List</a>
+                </div>
+
+                @section Scripts {
+                @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+                } *@
+            </section>
+        </main>
+    </div>
+
+</body>

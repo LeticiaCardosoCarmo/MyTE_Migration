@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\MyTE_Migration.props" />
+</Project>

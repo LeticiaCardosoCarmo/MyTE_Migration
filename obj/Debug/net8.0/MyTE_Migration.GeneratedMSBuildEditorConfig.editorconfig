@@ -1,0 +1,115 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = MyTE_Migration
+build_property.RootNamespace = MyTE_Migration
+build_property.ProjectDir = C:\Users\l.cardoso.do.carmo\Desktop\MyTE_Migration\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\l.cardoso.do.carmo\Desktop\MyTE_Migration
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Views/Departamento/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0YW1lbnRvXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Views/Departamento/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0YW1lbnRvXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Views/Departamento/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0YW1lbnRvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Views/Departamento/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0YW1lbnRvXFVwZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Views/Funcionario/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnVuY2lvbmFyaW9cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Views/Funcionario/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnVuY2lvbmFyaW9cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Views/Funcionario/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnVuY2lvbmFyaW9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Views/Funcionario/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnVuY2lvbmFyaW9cVXBkYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Views/HorasTrabalhadas/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9yYXNUcmFiYWxoYWRhc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Views/HorasTrabalhadas/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9yYXNUcmFiYWxoYWRhc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Views/HorasTrabalhadas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9yYXNUcmFiYWxoYWRhc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Views/HorasTrabalhadas/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9yYXNUcmFiYWxoYWRhc1xVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Views/WBS/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV0JTXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Views/WBS/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV0JTXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Views/WBS/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV0JTXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Views/WBS/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV0JTXFVwZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-x6ip2w410c

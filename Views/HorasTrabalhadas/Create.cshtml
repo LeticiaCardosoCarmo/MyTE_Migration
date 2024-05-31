@@ -1,0 +1,129 @@
+﻿@model MyTE_Migration.Models.HorasTrabalhadas
+
+@{
+    ViewData["Title"] = "Create";
+}
+<head>
+
+    <link rel="stylesheet" href="~/css/Departamento.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<header>
+    <link rel="stylesheet" href="~/css/Header.css" asp-append-version="true" />
+
+    <div class="header">
+        <div class="usuario-funcao">Administradora</div>
+        <div class="usuario">Letícia Cardoso</div>
+        <div class="usuario-email">leticia@avanacle.com</div>
+        <img src="~/images/icones/profile-2.svg" class="icone-usuario" />
+        <img src="~/images/avanacle-logo.png" class="avanacle-logo" />
+    </div>
+</header>
+
+<body>
+
+    <div class="container">
+
+        <aside class="sidebar">
+
+
+            <nav class="nav-nav">
+
+                <div class="ola">Olá, Administrador!</div>
+
+                <ul class="container-nav nav nav-pills flex-column mt-2">
+
+                    <li class="nav-item-lista">
+
+                        <a href="#" class="text-secondary text-decoration-none">
+
+                            <i class="nav-bi bi-clock"></i>Lançamento de horas
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item-lista">
+
+                        <a asp-controller="Funcionario" asp-action="Index" class="text-secondary text-decoration-none">
+
+                            <i class="nav-bi bi-person"></i>Gerenciar funcionários
+
+                        </a>
+
+                    </li>
+                    <li class="nav-item-lista">
+
+                        <a asp-controller="Departamento" asp-action="Index" class="text-secondary text-decoration-none">
+
+                            <i class="nav-bi bi-folder"></i>Gerenciar departamentos
+
+                        </a>
+
+                    </li>
+
+
+
+                    <li class="nav-item-lista">
+
+                        <a asp-controller="WBS" asp-action="Index" class="text-secondary text-decoration-none">
+
+                            <i class="nav-bi bi-gear"></i>Gerenciar WBS
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <a asp-controller="Home" asp-action="Index" class="logout"> Sair </a>
+
+        </aside>
+
+
+        <main class="main-content">
+            <section class="content">
+                <div class="form-container">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="Funcionario_ID" class="control-label"></label>
+                            <input asp-for="Funcionario_ID" class="form-control" />
+                            <span asp-validation-for="Funcionario_ID" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="WBS_ID" class="control-label"></label>
+                            <input asp-for="WBS_ID" class="form-control" />
+                            <span asp-validation-for="WBS_ID" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="HorasTabalhadas_Data" class="control-label"></label>
+                            <input asp-for="HorasTabalhadas_Data" class="form-control" />
+                            <span asp-validation-for="HorasTabalhadas_Data" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="HorasTrabalhadas_QtdeHoras" class="control-label"></label>
+                            <input asp-for="HorasTrabalhadas_QtdeHoras" class="form-control" />
+                            <span asp-validation-for="HorasTrabalhadas_QtdeHoras" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Salvar" class="salvar" />
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+
+@* <div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+} *@

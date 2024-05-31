@@ -1,0 +1,167 @@
+﻿@model IEnumerable<MyTE_Migration.Models.WBS>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<head>
+
+    <link rel="stylesheet" href="~/css/WBSIndex.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+</head>
+<header>
+    <link rel="stylesheet" href="~/css/Header.css" asp-append-version="true" />
+
+    <div class="header">
+        <div class="usuario-funcao">Administradora</div>
+        <div class="usuario">Letícia Cardoso</div>
+        <div class="usuario-email">leticia@avanacle.com</div>
+        <img src="~/images/icones/profile-2.svg" class="icone-usuario" />
+        <img src="~/images/avanacle-logo.png" class="avanacle-logo" />
+    </div>
+</header>
+<body>
+
+    <div class="container">
+
+        <aside class="sidebar">
+
+            <nav class="nav-nav">
+
+                <div class="ola">Olá, Administrador!</div>
+
+                <ul class="container-nav nav nav-pills flex-column mt-2">
+
+
+
+                    <li class="nav-item-lista">
+
+                        <a href="#" class="text-secondary text-decoration-none">
+
+                            <i class="nav-bi bi-clock"></i>Lançamento de horas
+
+                        </a>
+
+                    </li>
+
+
+
+                    <li class="nav-item-lista">
+
+                        <a asp-controller="Funcionario" asp-action="Index" class="text-secondary text-decoration-none">
+
+                            <i class="nav-bi bi-person"></i>Gerenciar funcionários
+
+                        </a>
+
+                    </li>
+
+
+
+                    <li class="nav-item-lista">
+
+                        <a asp-controller="Departamento" asp-action="Index" class="text-secondary text-decoration-none">
+
+                            <i class="nav-bi bi-folder"></i>Gerenciar departamentos
+
+                        </a>
+
+                    </li>
+
+
+
+                    <li class="nav-item-lista">
+
+                        <a asp-controller="WBS" asp-action="Index" class="text-secondary text-decoration-none">
+
+                            <i class="nav-bi bi-gear"></i>Gerenciar WBS
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <a asp-controller="Home" asp-action="Index" class="logout"> Sair </a>
+
+        </aside>
+
+    </div>
+    @* <h1>Index</h1>*@
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+
+    <main class="main-content">
+
+        <section class="content">
+
+            <div class="header-wbs">
+
+                <input type="text" id="search" placeholder="Pesquisar">
+
+                <a asp-action="Create" class="newBtn">
+
+                    Novo
+
+                    <i class="bi bi-plus-circle"></i>
+
+                </a>
+
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID
+                            @*@Html.DisplayNameFor(model => model.WBS_Codigo)*@
+                        </th>
+                        <th>Código
+                            @*@Html.DisplayNameFor(model => model.WBS_Descricao)*@
+                        </th>
+                        <th>Descrição
+                            @*@Html.DisplayNameFor(model => model.WBS_Tipo)*@
+                        </th>
+                        <th>Tipo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td readonly>@item.WBS_ID
+                                @*@Html.DisplayFor(modelItem => item.WBS_Codigo)*@
+                            </td>
+                            <td>@item.WBS_Codigo
+                                @*@Html.DisplayFor(modelItem => item.WBS_Descricao)*@
+                            </td>
+                            <td>@item.WBS_Descricao
+                                @*@Html.DisplayFor(modelItem => item.WBS_Tipo)*@
+                            </td>
+                            <td>@item.WBS_Tipo</td>
+                            <td>
+                                <a asp-action="Update" asp-route-id="@item.WBS_ID" class="editBtn">
+                                    <i class="dep-bi bi bi-pencil"></i>
+                                </a>
+                                @*<a asp-action="Details" asp-route-id="@item.WBS_ID">Details</a> *@                   
+                            </td>
+                            <td>
+                                <a asp-action="Delete" asp-route-id="@item.WBS_ID" class="deleteBtn">
+                                    <i class="dep-bi bi bi-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+
+
+

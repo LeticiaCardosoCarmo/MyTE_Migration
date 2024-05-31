@@ -1,0 +1,65 @@
+﻿.header {
+    background-color: #FFFFFF;
+    padding: 25px 39.7px 28px 31px;
+    background-position: left top;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height: 130px;
+}
+
+    .header .usuario-funcao {
+        font-family: 'Segoe UI';
+        font-weight: 500;
+        font-size: 15px;
+        color: #363636;
+        right: 10px;
+        top: 10px;
+        position: absolute;
+        margin-top: 10px;
+        margin-right: 150px;
+    }
+
+    .header .usuario {
+        font-family: 'Segoe UI';
+        font-weight: 700;
+        font-size: 25px;
+        color: #363636;
+        right: 10px;
+        top: 10px;
+        position: absolute;
+        margin-top: 30px;
+        margin-right: 150px;
+    }
+
+
+    .header .usuario-email {
+        font-family: 'Segoe UI';
+        font-weight: 500;
+        font-size: 15px;
+        color: #363636;
+        right: 10px;
+        top: 15px;
+        position: absolute;
+        margin-top: 55px;
+        margin-right: 150px;
+    }
+
+
+    .header .icone-usuario {
+        position: absolute;
+        top: 18px;
+        right: 0;
+        width: 220px;
+        height: 60px;
+        display: block;
+    }
+
+
+    .header .avanacle-logo {
+        position: absolute;
+        top: 18px;
+        left: 25px;
+        width: 164px;
+        height: 65px;
+    }
