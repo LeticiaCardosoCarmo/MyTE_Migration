@@ -257,3 +257,7 @@ C:\Users\l.cardoso.do.carmo\Desktop\MyTE_Migration\bin\Debug\net8.0\runtimes\win
 C:\Users\l.cardoso.do.carmo\Desktop\MyTE_Migration\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 C:\Users\l.cardoso.do.carmo\Desktop\MyTE_Migration\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\l.cardoso.do.carmo\Desktop\MyTE_Migration\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+C:\Users\l.cardoso.do.carmo\Desktop\MyTE_Migration\obj\Debug\net8.0\MyTE_Migration.sourcelink.json
+C:\Users\l.cardoso.do.carmo\Desktop\MyTE_Migration\obj\Debug\net8.0\scopedcss\Areas\Admin\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\l.cardoso.do.carmo\Desktop\MyTE_Migration\obj\Debug\net8.0\scopedcss\Areas\Gerente\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\l.cardoso.do.carmo\Desktop\MyTE_Migration\obj\Debug\net8.0\scopedcss\Areas\Usuario\Views\Shared\_Layout.cshtml.rz.scp.css

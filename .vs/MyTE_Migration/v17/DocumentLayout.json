@@ -3,8 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4F30E05F-CBE7-490C-9F0C-34DF69E08B5A}|MyTE_Migration.csproj|c:\\users\\l.cardoso.do.carmo\\desktop\\myte_migration\\models\\funcionario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F30E05F-CBE7-490C-9F0C-34DF69E08B5A}|MyTE_Migration.csproj|solutionrelative:models\\funcionario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4F30E05F-CBE7-490C-9F0C-34DF69E08B5A}|MyTE_Migration.csproj|c:\\users\\l.cardoso.do.carmo\\desktop\\myte_migration\\services\\seeduserroleinitial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F30E05F-CBE7-490C-9F0C-34DF69E08B5A}|MyTE_Migration.csproj|solutionrelative:services\\seeduserroleinitial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F30E05F-CBE7-490C-9F0C-34DF69E08B5A}|MyTE_Migration.csproj|c:\\users\\l.cardoso.do.carmo\\desktop\\myte_migration\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F30E05F-CBE7-490C-9F0C-34DF69E08B5A}|MyTE_Migration.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F30E05F-CBE7-490C-9F0C-34DF69E08B5A}|MyTE_Migration.csproj|c:\\users\\l.cardoso.do.carmo\\desktop\\myte_migration\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F30E05F-CBE7-490C-9F0C-34DF69E08B5A}|MyTE_Migration.csproj|solutionrelative:context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F30E05F-CBE7-490C-9F0C-34DF69E08B5A}|MyTE_Migration.csproj|c:\\users\\l.cardoso.do.carmo\\desktop\\myte_migration\\models\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F30E05F-CBE7-490C-9F0C-34DF69E08B5A}|MyTE_Migration.csproj|solutionrelative:models\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F30E05F-CBE7-490C-9F0C-34DF69E08B5A}|MyTE_Migration.csproj|c:\\users\\l.cardoso.do.carmo\\desktop\\myte_migration\\areas\\admin\\models\\rolemodification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F30E05F-CBE7-490C-9F0C-34DF69E08B5A}|MyTE_Migration.csproj|solutionrelative:areas\\admin\\models\\rolemodification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F30E05F-CBE7-490C-9F0C-34DF69E08B5A}|MyTE_Migration.csproj|c:\\users\\l.cardoso.do.carmo\\desktop\\myte_migration\\areas\\admin\\controllers\\adminuserscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F30E05F-CBE7-490C-9F0C-34DF69E08B5A}|MyTE_Migration.csproj|solutionrelative:areas\\admin\\controllers\\adminuserscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F30E05F-CBE7-490C-9F0C-34DF69E08B5A}|MyTE_Migration.csproj|c:\\users\\l.cardoso.do.carmo\\desktop\\myte_migration\\migrations\\logindb\\20240531223515_migrationquatro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F30E05F-CBE7-490C-9F0C-34DF69E08B5A}|MyTE_Migration.csproj|solutionrelative:migrations\\logindb\\20240531223515_migrationquatro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,16 +50,88 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Funcionario.cs",
-              "DocumentMoniker": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\Models\\Funcionario.cs",
-              "RelativeDocumentMoniker": "Models\\Funcionario.cs",
-              "ToolTip": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\Models\\Funcionario.cs",
-              "RelativeToolTip": "Models\\Funcionario.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAABCAAAA",
+              "DocumentIndex": 6,
+              "Title": "20240531223515_MigrationQuatro.cs",
+              "DocumentMoniker": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\Migrations\\LoginDb\\20240531223515_MigrationQuatro.cs",
+              "RelativeDocumentMoniker": "Migrations\\LoginDb\\20240531223515_MigrationQuatro.cs",
+              "ToolTip": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\Migrations\\LoginDb\\20240531223515_MigrationQuatro.cs",
+              "RelativeToolTip": "Migrations\\LoginDb\\20240531223515_MigrationQuatro.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-31T18:34:22.517Z",
+              "WhenOpened": "2024-05-31T22:35:15.805Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AppUser.cs",
+              "DocumentMoniker": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\Models\\AppUser.cs",
+              "RelativeDocumentMoniker": "Models\\AppUser.cs",
+              "ToolTip": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\Models\\AppUser.cs",
+              "RelativeToolTip": "Models\\AppUser.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-31T22:25:12.316Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\Context\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Context\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\Context\\AppDbContext.cs",
+              "RelativeToolTip": "Context\\AppDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-31T22:24:49.55Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AdminUsersController.cs",
+              "DocumentMoniker": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\Areas\\Admin\\Controllers\\AdminUsersController.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\AdminUsersController.cs",
+              "ToolTip": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\Areas\\Admin\\Controllers\\AdminUsersController.cs",
+              "RelativeToolTip": "Areas\\Admin\\Controllers\\AdminUsersController.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAwAcAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-31T22:02:45.505Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SeedUserRoleInitial.cs",
+              "DocumentMoniker": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\Services\\SeedUserRoleInitial.cs",
+              "RelativeDocumentMoniker": "Services\\SeedUserRoleInitial.cs",
+              "ToolTip": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\Services\\SeedUserRoleInitial.cs",
+              "RelativeToolTip": "Services\\SeedUserRoleInitial.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAmwBEAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-31T21:51:34.637Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-31T21:32:13.833Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RoleModification.cs",
+              "DocumentMoniker": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\Areas\\Admin\\Models\\RoleModification.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Models\\RoleModification.cs",
+              "ToolTip": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\Areas\\Admin\\Models\\RoleModification.cs",
+              "RelativeToolTip": "Areas\\Admin\\Models\\RoleModification.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-31T21:26:19.697Z"
             }
           ]
         }

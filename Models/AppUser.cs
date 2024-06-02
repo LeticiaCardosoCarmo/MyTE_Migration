@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿//using Microsoft.AspNetCore.Identity;
 
-namespace MyTE_Migration.Models
-{
-    public class AppUser : IdentityUser
-    {
-    }
-}
+//namespace MyTE_Migration.Models
+//{
+//    public class AppUser : IdentityUser
+//    {
+//    }
+//}

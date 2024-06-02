@@ -18,7 +18,16 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="8.0.6" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Gerente\Data\" />
+    <Folder Include="Areas\Gerente\Models\" />
+    <Folder Include="Areas\Usuario\Data\" />
+    <Folder Include="Areas\Usuario\Models\" />
   </ItemGroup>
 
 </Project>

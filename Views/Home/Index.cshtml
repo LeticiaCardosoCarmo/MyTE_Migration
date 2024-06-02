@@ -1,35 +1,46 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity;
+
+@inject SignInManager<IdentityUser> SignInManager
+
+
+@{
+
     ViewData["Title"] = "Home Page";
+
 }
 
 <link rel="stylesheet" href="~/css/Login.css" asp-append-version="true" />
 
-<div class="body">
-
-    <div class="header">
-
-        <div class="my-te">MyTE</div>
-
-        <img src="~/images/avanacle-logo.png" class="avanacle-logo"></img>
-
-    </div>
-
-    <div class="login">
-
-        <div class="retangulo-formulario">
-
-            <label class="email-word">Email</label>
-
-            <input type="email" class="email-rectangle" placeholder="  email@email.com" />
-
-            <label class="senha-word">Senha</label>
-
-            <input type="password" class="senha-rectangle" placeholder="  Admin@123" />
-
-            <a type="submit" class="btn" asp-area="" asp-controller="Funcionario" asp-action="Index">LOGIN</a>
-
+@if (SignInManager.IsSignedIn(User))
+{
+    <ul class="nav-item">
+        <form method="post" asp-controller="account" asp-action="logout">
+            <button type="submit" style="width:auto"
+                    class="nav-link btn btn-link py-0">
+                Logout @User.Identity.Name
+            </button>
+        </form>
+    </ul>
+}
+else
+{
+    <div class="body">
+        <div class="header">
+            <div class="my-te">MyTE</div>
+            <img src="~/images/avanacle-logo.png" class="avanacle-logo"></img>
         </div>
+        <div class="login">
+            <div class="retangulo-formulario">
+                <form asp-action="Login" asp-controller="Account" method="post">
+                    <label class="email-word">Email</label>
+                    <input type="email" class="email-rectangle" placeholder="  email@email.com" name="Email" required />
 
+                    <label class="senha-word">Senha</label>
+                    <input type="password" class="senha-rectangle" placeholder="  Admin@123" name="Password" required />
+
+                    <button type="submit" class="btn">LOGIN</button>
+                </form>
+            </div>
+        </div>
     </div>
-
-</div> 
+}

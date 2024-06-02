@@ -1,0 +1,50 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<body>
+
+    <header>
+        <link rel="stylesheet" href="~/css/Header.css" asp-append-version="true" />
+
+        <div class="header">
+            <div class="usuario-funcao">Administradora</div>
+            <div class="usuario">Letícia Cardoso</div>
+            <div class="usuario-email">leticia@avanacle.com</div>
+            <img src="~/images/icones/profile-2.svg" class="icone-usuario" />
+            <img src="~/images/avanacle-logo.png" class="avanacle-logo" />
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav class="nav-nav">
+                <ul class="container-nav nav nav-pills flex-column mt-2">
+                    <li class="nav-item-lista">
+                        <a href="#" class="text-secondary text-decoration-none">
+                            <i class="nav-bi bi-clock"></i>Lançamento de horas
+                        </a>
+                    </li>
+                    <li class="nav-item-lista">
+                        <a href="#" class="text-secondary text-decoration-none">
+                            <i class="nav-bi bi-activity"></i>Relatório
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" class="logout-form">
+                <button type="submit" class="logout">Sair</button>
+            </form>
+
+        </aside>
+    </div>
+
+    <main class="main-content">
+        <section class="content">
+            <div class="ola">Olá, Gerente!</div>
+        </section>
+    </main>
+
+</body>
