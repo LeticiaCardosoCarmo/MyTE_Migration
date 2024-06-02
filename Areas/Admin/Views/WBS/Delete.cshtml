@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="~/css/Header.css" asp-append-version="true" />
 
     <div class="header">
-        <div class="usuario-funcao">Administradora</div>
-        <div class="usuario">Letícia Cardoso</div>
-        <div class="usuario-email">leticia@avanacle.com</div>
+        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" class="logout-form">
+            <button type="submit" class="btn">Sair</button>
+        </form>
         <img src="~/images/icones/profile-2.svg" class="icone-usuario" />
         <img src="~/images/avanacle-logo.png" class="avanacle-logo" />
     </div>
@@ -24,7 +24,6 @@
 
     <aside class="sidebar">
         <nav class="nav-nav">
-            <div class="ola">Olá, Administrador!</div>
             <ul class="container-nav nav nav-pills flex-column mt-2">
                 <li class="nav-item-lista">
                     <a href="#" class="text-secondary text-decoration-none">
@@ -48,9 +47,6 @@
                 </li>
             </ul>
         </nav>
-        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" class="logout-form">
-            <button type="submit" class="logout">Sair</button>
-        </form>
     </aside>
 </div>
 <main class="main-content">
@@ -59,33 +55,16 @@
             <h4>Tem certeza que quer deletar o registro?</h4>
             <div>
                 <dl class="row">
-                    @*         <dt class = "col-sm-2">
-                    @Html.DisplayNameFor(model => model.WBS_Codigo)
-                    </dt>
-                    <dd class = "col-sm-10">
-                    @Html.DisplayFor(model => model.WBS_Codigo)
-                    </dd>
-                    <dt class = "col-sm-2">
-                    @Html.DisplayNameFor(model => model.WBS_Descricao)
-                    </dt>  *@
                     <dd class="col-sm-10">
                         @Html.DisplayFor(model => model.WBS_Descricao)
                     </dd>
-                    @*         <dt class = "col-sm-2">
-                    @Html.DisplayNameFor(model => model.WBS_Tipo)
-                    </dt>
-                    <dd class = "col-sm-10">
-                    @Html.DisplayFor(model => model.WBS_Tipo)
-                    </dd> *@
                 </dl>
 
                 <form asp-action="Delete">
                     <input type="hidden" asp-for="WBS_ID" />
                     <input type="submit" value="Deletar" class="save" />
-                    @*<a asp-action="Index">Back to List</a>*@
                 </form>
             </div>
         </div>
     </section>
 </main>
-

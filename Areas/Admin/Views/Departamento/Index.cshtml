@@ -10,9 +10,9 @@
 <header>
     <link rel="stylesheet" href="~/css/Header.css" asp-append-version="true" />
     <div class="header">
-        <div class="usuario-funcao">Administradora</div>
-        <div class="usuario">Letícia Cardoso</div>
-        <div class="usuario-email">leticia@avanacle.com</div>
+        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" class="logout-form">
+            <button type="submit" class="btn">Sair</button>
+        </form>
         <img src="~/images/icones/profile-2.svg" class="icone-usuario" />
         <img src="~/images/avanacle-logo.png" class="avanacle-logo" />
     </div>
@@ -21,7 +21,6 @@
     <div class="container">
         <aside class="sidebar">
             <nav class="nav-nav">
-                <div class="ola">Olá, Administrador!</div>
                 <ul class="container-nav nav nav-pills flex-column mt-2">
                     <li class="nav-item-lista">
                         <a href="#" class="text-secondary text-decoration-none">
@@ -45,29 +44,20 @@
                     </li>
                 </ul>
             </nav>
-            <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" class="logout-form">
-                <button type="submit" class="logout">Sair</button>
-            </form>
         </aside>
         <main class="main-content">
             <section class="content">
                 <div class="header-depto">
-                    <input type="text" id="search" placeholder="Pesquisar" />
                     <a asp-action="Create" class="newBtn">
                         Novo
                         <i class="bi bi-plus-circle"></i>
                     </a>
                 </div>
-                @*     <p>
-                <a asp-action="Create">Create New</a>
-                </p> *@
                 <table>
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>Departamento</th>
-                                @* @Html.DisplayNameFor(model => model.Departamento_ID)
-                                @Html.DisplayNameFor(model => model.Departamento_Nome) *@                         
                         </tr>
                     </thead>
                     <tbody>
@@ -85,16 +75,6 @@
                                     <a asp-action="Delete" asp-route-id="@item.Departamento_ID" class="deleteBtn">
                                         <i class="dep-bi bi bi-trash"></i>
                                     </a>
-                                    @* <button class="deleteBtn"><i class="dep-bi bi bi-trash"></i></button> *@
-                                </td>
-@*                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Departamento_Nome)
-                                </td> *@
-                                @* <td>
-                                    <a asp-action="Edit" asp-route-id="@item.Departamento_ID">Edit</a> |
-                                    <a asp-action="Details" asp-route-id="@item.Departamento_ID">Details</a> |
-                                    <a asp-action="Delete" asp-route-id="@item.Departamento_ID">Delete</a>
-                                </td> *@
                             </tr>
                         }
                     </tbody>

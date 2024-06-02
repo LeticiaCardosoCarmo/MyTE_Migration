@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -16,10 +17,14 @@ namespace MyTE_Migration.Areas.Admin.Controllers
     public class FuncionarioController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public FuncionarioController(AppDbContext context)
+        public FuncionarioController(AppDbContext context, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _context = context;
+            _userManager = userManager;
+            _roleManager = roleManager;
         }
 
         // GET: Funcionario
@@ -31,23 +36,51 @@ namespace MyTE_Migration.Areas.Admin.Controllers
         // GET: Funcionario/Create
         public IActionResult Create()
         {
+            ViewData["Roles"] = new SelectList(_roleManager.Roles.ToList(), "Name", "Name");
             return View();
         }
 
         // POST: Funcionario/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Funcionario_ID,Funcionario_NomeCompleto,Funcionario_Email,Funcionario_DataContratacao,Departamento_ID")] Funcionario funcionario)
+        public async Task<IActionResult> Create(CreateFuncionarioViewModel model)
         {
             if (ModelState.IsValid)
             {
+                var funcionario = new Funcionario
+                {
+                    Funcionario_NomeCompleto = model.Funcionario_NomeCompleto,
+                    Funcionario_Email = model.Funcionario_Email,
+                    Funcionario_DataContratacao = model.Funcionario_DataContratacao,
+                    Departamento_ID = model.Departamento_ID
+                };
                 _context.Add(funcionario);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                var user = new IdentityUser
+                {
+                    UserName = model.Funcionario_Email,
+                    Email = model.Funcionario_Email
+                };
+                var result = await _userManager.CreateAsync(user, model.Password);
+
+                if (result.Succeeded)
+                {
+                    await _userManager.AddToRoleAsync(user, model.Role);
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+                    ViewData["Roles"] = new SelectList(await _roleManager.Roles.ToListAsync(), "Name", "Name");
+                    return View(model);
+                }
             }
-            return View(funcionario);
+            ViewData["Roles"] = new SelectList(await _roleManager.Roles.ToListAsync(), "Name", "Name");
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Funcionario/Edit/5
@@ -63,17 +96,36 @@ namespace MyTE_Migration.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            return View(funcionario);
+
+            var user = await _userManager.FindByEmailAsync(funcionario.Funcionario_Email);
+            if (user == null)
+            {
+                return NotFound("Usuário não encontrado.");
+            }
+
+            var userRole = (await _userManager.GetRolesAsync(user)).FirstOrDefault();
+
+            var model = new UpdateFuncionarioViewModel
+            {
+                Funcionario_ID = funcionario.Funcionario_ID,
+                Funcionario_NomeCompleto = funcionario.Funcionario_NomeCompleto,
+                Funcionario_Email = funcionario.Funcionario_Email,
+                Funcionario_DataContratacao = funcionario.Funcionario_DataContratacao,
+                Departamento_ID = funcionario.Departamento_ID,
+                Role = userRole
+            };
+
+            ViewData["Roles"] = new SelectList(_roleManager.Roles, "Name", "Name");
+            return View(model);
         }
 
         // POST: Funcionario/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(int id, [Bind("Funcionario_ID,Funcionario_NomeCompleto,Funcionario_Email,Funcionario_DataContratacao,Departamento_ID")] Funcionario funcionario)
+        public async Task<IActionResult> Update(int id, UpdateFuncionarioViewModel model)
         {
-            if (id != funcionario.Funcionario_ID)
+            if (id != model.Funcionario_ID)
             {
                 return NotFound();
             }
@@ -82,12 +134,37 @@ namespace MyTE_Migration.Areas.Admin.Controllers
             {
                 try
                 {
+                    var funcionario = await _context.Funcionario.FindAsync(id);
+                    if (funcionario == null)
+                    {
+                        return NotFound();
+                    }
+
+                    var user = await _userManager.FindByEmailAsync(funcionario.Funcionario_Email);
+                    if (user == null)
+                    {
+                        return NotFound("Usuário não encontrado.");
+                    }
+
+                    funcionario.Funcionario_NomeCompleto = model.Funcionario_NomeCompleto;
+                    funcionario.Funcionario_Email = model.Funcionario_Email;
+                    funcionario.Funcionario_DataContratacao = model.Funcionario_DataContratacao;
+                    funcionario.Departamento_ID = model.Departamento_ID;
+
+                    var currentRole = (await _userManager.GetRolesAsync(user)).FirstOrDefault();
+                    if (currentRole != null)
+                    {
+                        await _userManager.RemoveFromRoleAsync(user, currentRole);
+                    }
+
+                    await _userManager.AddToRoleAsync(user, model.Role);
+
                     _context.Update(funcionario);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!FuncionarioExists(funcionario.Funcionario_ID))
+                    if (!FuncionarioExists(model.Funcionario_ID))
                     {
                         return NotFound();
                     }
@@ -98,7 +175,9 @@ namespace MyTE_Migration.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(funcionario);
+
+            ViewData["Roles"] = new SelectList(_roleManager.Roles, "Name", "Name");
+            return View(model);
         }
 
         // GET: Funcionario/Delete/5
@@ -128,9 +207,9 @@ namespace MyTE_Migration.Areas.Admin.Controllers
             if (funcionario != null)
             {
                 _context.Funcionario.Remove(funcionario);
+                await _context.SaveChangesAsync();
             }
 
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
@@ -139,4 +218,5 @@ namespace MyTE_Migration.Areas.Admin.Controllers
             return _context.Funcionario.Any(e => e.Funcionario_ID == id);
         }
     }
+
 }

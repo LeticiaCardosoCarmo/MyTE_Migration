@@ -10,21 +10,18 @@
 <header>
     <link rel="stylesheet" href="~/css/Header.css" asp-append-version="true" />
     <div class="header">
-        <div class="usuario-funcao">Administradora</div>
-        <div class="usuario">Letícia Cardoso</div>
-        <div class="usuario-email">leticia@avanacle.com</div>
+        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" class="logout-form">
+            <button type="submit" class="btn">Sair</button>
+        </form>
         <img src="~/images/icones/profile-2.svg" class="icone-usuario" />
         <img src="~/images/avanacle-logo.png" class="avanacle-logo" />
     </div>
 </header>
 
 <body>
-
     <div class="container">
-
         <aside class="sidebar">
             <nav class="nav-nav">
-                <div class="ola">Olá, Administrador!</div>
                 <ul class="container-nav nav nav-pills flex-column mt-2">
                     <li class="nav-item-lista">
                         <a href="#" class="text-secondary text-decoration-none">
@@ -48,20 +45,12 @@
                     </li>
                 </ul>
             </nav>
-            <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" class="logout-form">
-                <button type="submit" class="logout">Sair</button>
-            </form>
         </aside>
-        @*
-        <h1>Create</h1>
 
-        <h4>WBS</h4>
-        <hr /> *@
         <main class="main-content">
             <section class="content">
                 <div class="form-container">
                     <div class="row">
-                        @*<div class="col-md-4">*@
                         <form asp-action="Create">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <div class="form-group">
@@ -76,7 +65,7 @@
                             </div>
                             <div class="form-group form-check">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" asp-for="WBS_Tipo" /> Chargeability @*@Html.DisplayNameFor(model => model.WBS_Tipo)*@
+                                    <input class="form-check-input" asp-for="WBS_Tipo" /> Chargeability
                                 </label>
                             </div>
                             <div class="form-group">
@@ -86,13 +75,7 @@
                     </div>
                 </div>
 
-                @* <div>
-                <a asp-action="Index">Back to List</a>
-                </div>
 
-                @section Scripts {
-                @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-                } *@
             </section>
         </main>
     </div>

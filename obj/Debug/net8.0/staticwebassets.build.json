@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WAvQ5H/Jnf5Cfnz8Utl6f1WRJCug8bSwkzcwwQJ4EA8=",
+  "Hash": "7D1LSOow+BE0xkblI2C/tH5uyAqOYaUlqfgbs+LgAt0=",
   "Source": "MyTE_Migration",
   "BasePath": "_content/MyTE_Migration",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\MyTE_Migration.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\css\\AreaAdmin.css",
+      "SourceId": "MyTE_Migration",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\",
+      "BasePath": "_content/MyTE_Migration",
+      "RelativePath": "css/AreaAdmin.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\AreaAdmin.css"
     },
     {
       "Identity": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\css\\Departamento.css",

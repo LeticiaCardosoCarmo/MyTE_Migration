@@ -63,3 +63,14 @@
         width: 164px;
         height: 65px;
     }
+
+.btn {
+    text-decoration: none;
+    color: #FF5800;
+    padding: 15px 30px;
+    right: 0;
+    font-size: 25px;
+    align-self: flex-end;
+    justify-self: center;
+    margin-left: 1240px;
+}

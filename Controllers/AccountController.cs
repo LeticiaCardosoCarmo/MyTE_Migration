@@ -33,45 +33,45 @@ namespace MyTE_Migration.Controllers
 
         // Etapa Get: onde eu apresento o formulário.
 
-        /*		[HttpGet]
-                public IActionResult Register()
-                {
-                    return View();
-                }
+      		//[HttpGet]
+        //        public IActionResult Register()
+        //        {
+        //            return View();
+        //        }
  
-                // Etapa Post: quando o usuário preencher e der o ok no formulário ele vai fazer um post. Contém a lógica para fazer o registro.
+        //        // Etapa Post: quando o usuário preencher e der o ok no formulário ele vai fazer um post. Contém a lógica para fazer o registro.
  
-                [HttpPost]
-                public async Task<IActionResult> Register(RegisterViewModel model)
-                {
-                    if (ModelState.IsValid)
-                    {
-                        // Copia os dados do RegisterViewModel para o IdentityUser
-                        var user = new IdentityUser
-                        {
-                            UserName = model.Email,
-                            Email = model.Email
-                        };
+        //        [HttpPost]
+        //        public async Task<IActionResult> Register(RegisterViewModel model)
+        //        {
+        //            if (ModelState.IsValid)
+        //            {
+        //                // Copia os dados do RegisterViewModel para o IdentityUser
+        //                var user = new IdentityUser
+        //                {
+        //                    UserName = model.Email,
+        //                    Email = model.Email
+        //                };
  
-                        // Armazena os dados do usuário na tabela AspNetUsers
-                        var result = await userManager.CreateAsync(user, model.Password);
+        //                // Armazena os dados do usuário na tabela AspNetUsers
+        //                var result = await userManager.CreateAsync(user, model.Password);
  
-                        // Se o usuário foi criado com sucesso, faz o login do usuário usando o serviço SignInManager e o redireciona para o método action Index
+        //                // Se o usuário foi criado com sucesso, faz o login do usuário usando o serviço SignInManager e o redireciona para o método action Index
  
-                        if (result.Succeeded)
-                        {
-                            await signInManager.SignInAsync(user, isPersistent: false);
-                            return RedirectToAction("Index", "Home");
-                        }
+        //                if (result.Succeeded)
+        //                {
+        //                    await signInManager.SignInAsync(user, isPersistent: false);
+        //                    return RedirectToAction("Index", "Home");
+        //                }
  
-                        // Se houver erros então inclui no ModelState que será exibido pela tag helper summary na validação
-                        foreach (var error in result.Errors)
-                        {
-                            ModelState.AddModelError(string.Empty, error.Description);
-                        }
-                    }
-                    return View(model);
-                }*/
+        //                // Se houver erros então inclui no ModelState que será exibido pela tag helper summary na validação
+        //                foreach (var error in result.Errors)
+        //                {
+        //                    ModelState.AddModelError(string.Empty, error.Description);
+        //                }
+        //            }
+        //            return View(model);
+        //        }
 
         // Login feito em duas etapas:
         // 1 -apresenta o formulário de login preenche;

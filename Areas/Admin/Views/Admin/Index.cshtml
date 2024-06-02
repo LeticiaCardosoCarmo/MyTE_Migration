@@ -14,9 +14,9 @@
         <link rel="stylesheet" href="~/css/Header.css" asp-append-version="true" />
 
         <div class="header">
-            <div class="usuario-funcao">Administradora</div>
-            <div class="usuario">Letícia Cardoso</div>
-            <div class="usuario-email">leticia@avanacle.com</div>
+            <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" class="logout-form">
+                <button type="submit" class="btn">Sair</button>
+            </form>
             <img src="~/images/icones/profile-2.svg" class="icone-usuario" />
             <img src="~/images/avanacle-logo.png" class="avanacle-logo" />
         </div>
@@ -48,10 +48,6 @@
                     </li>
                 </ul>
             </nav>
-            <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" class="logout-form">
-                <button type="submit" class="logout">Sair</button>
-            </form>
-
         </aside>
     </div>
 

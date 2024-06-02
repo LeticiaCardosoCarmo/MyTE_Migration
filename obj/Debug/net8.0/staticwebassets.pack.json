@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\MyTE_Migration.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\css\\AreaAdmin.css",
+      "PackagePath": "staticwebassets\\css\\AreaAdmin.css"
+    },
+    {
       "Id": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\css\\Departamento.css",
       "PackagePath": "staticwebassets\\css\\Departamento.css"
     },

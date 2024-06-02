@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="~/css/Header.css" asp-append-version="true" />
 
     <div class="header">
-        <div class="usuario-funcao">Administradora</div>
-        <div class="usuario">Letícia Cardoso</div>
-        <div class="usuario-email">leticia@avanacle.com</div>
+        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" class="logout-form">
+            <button type="submit" class="btn">Sair</button>
+        </form>
         <img src="~/images/icones/profile-2.svg" class="icone-usuario" />
         <img src="~/images/avanacle-logo.png" class="avanacle-logo" />
     </div>
@@ -25,7 +25,6 @@
 
     <aside class="sidebar">
         <nav class="nav-nav">
-            <div class="ola">Olá, Administrador!</div>
             <ul class="container-nav nav nav-pills flex-column mt-2">
                 <li class="nav-item-lista">
                     <a href="#" class="text-secondary text-decoration-none">
@@ -49,9 +48,6 @@
                 </li>
             </ul>
         </nav>
-        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" class="logout-form">
-            <button type="submit" class="logout">Sair</button>
-        </form>
     </aside>
 </div>
 <main class="main-content">
@@ -60,25 +56,19 @@
             <h4>Tem certeza que quer deletar o registro?</h4>
             <div>
                 <dl>
-                @*<dl class="row">
-                    <dt class="col-sm-2">
-                        @Html.DisplayNameFor(model => model.Departamento_Nome)
-                </dt>*@
-                     <dd class="col-sm-10">
+                    <dd class="col-sm-10">
                         @Html.DisplayFor(model => model.Departamento_Nome)
                     </dd>
-                </dl> 
+                </dl>
 
                 <form asp-action="Delete">
                     <input type="hidden" asp-for="Departamento_ID" />
                     <input type="submit" value="Deletar" class="salvar" />
-                    @* <a asp-action="Index">Back to List</a> *@
+
                 </form>
             </div>
 
         </div>
     </section>
 </main>
-            
-
-           
+has context menu
