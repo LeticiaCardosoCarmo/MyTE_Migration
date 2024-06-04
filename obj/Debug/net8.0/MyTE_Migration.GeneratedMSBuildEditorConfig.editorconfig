@@ -74,6 +74,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9yYXNUcmFiYWxoYWRhc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Areas/Admin/Views/HorasTrabalhadas/LancamentoHoras.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9yYXNUcmFiYWxoYWRhc1xMYW5jYW1lbnRvSG9yYXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Areas/Admin/Views/HorasTrabalhadas/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9yYXNUcmFiYWxoYWRhc1xVcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

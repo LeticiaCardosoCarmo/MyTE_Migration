@@ -10,5 +10,6 @@ namespace MyTE_Migration.Areas.Admin.Models
         public int WBS_ID { get; set; }
         public DateTime HorasTabalhadas_Data { get; set; }
         public int HorasTrabalhadas_QtdeHoras { get; set; }
+        public Funcionario? funcionario { get; set; }
     }
 }

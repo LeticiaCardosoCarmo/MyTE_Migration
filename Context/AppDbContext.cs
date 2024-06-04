@@ -13,7 +13,16 @@ namespace MyTE_Migration.Context
         public DbSet<WBS> WBS { get; set; }
         public DbSet<HorasTrabalhadas> HorasTrabalhadas { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<HorasTrabalhadas>()
+                .HasOne(h => h.funcionario)
+                .WithMany(f => f.horasTrabalhadas)
+                .HasForeignKey(h => h.Funcionario_ID);
+
+            base.OnModelCreating(modelBuilder);
+        }
+
     }
-
-
+   
 }

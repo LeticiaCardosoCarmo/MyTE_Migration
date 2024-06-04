@@ -12,5 +12,6 @@ namespace MyTE_Migration.Areas.Admin.Models
         public string? Funcionario_Email { get; set; }
         public DateTime? Funcionario_DataContratacao { get; set; }
         public int Departamento_ID { get; set; }
+        public ICollection<HorasTrabalhadas>? horasTrabalhadas { get; set; }
     }
 }

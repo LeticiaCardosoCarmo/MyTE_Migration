@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -29,21 +30,11 @@ namespace MyTE_Migration.Areas.Admin.Controllers
         }
 
         // GET: WBS/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> GetAllWbsAsync()
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            var wbsList = await _context.WBS.ToListAsync();
+            return View(wbsList);
 
-            var wBS = await _context.WBS
-                .FirstOrDefaultAsync(m => m.WBS_ID == id);
-            if (wBS == null)
-            {
-                return NotFound();
-            }
-
-            return View(wBS);
         }
 
         // GET: WBS/Create
@@ -156,5 +147,6 @@ namespace MyTE_Migration.Areas.Admin.Controllers
         {
             return _context.WBS.Any(e => e.WBS_ID == id);
         }
+
     }
 }

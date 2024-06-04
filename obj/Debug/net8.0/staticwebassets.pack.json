@@ -29,6 +29,10 @@
       "PackagePath": "staticwebassets\\css\\Header.css"
     },
     {
+      "Id": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\css\\LancamentoHoras.css",
+      "PackagePath": "staticwebassets\\css\\LancamentoHoras.css"
+    },
+    {
       "Id": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\css\\Login.css",
       "PackagePath": "staticwebassets\\css\\Login.css"
     },

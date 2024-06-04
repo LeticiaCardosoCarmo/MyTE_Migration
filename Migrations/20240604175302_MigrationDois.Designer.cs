@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyTE_Migration.Context;
 
@@ -11,9 +12,11 @@ using MyTE_Migration.Context;
 namespace MyTE_Migration.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240604175302_MigrationDois")]
+    partial class MigrationDois
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,6 +77,9 @@ namespace MyTE_Migration.Migrations
                     b.Property<int>("Funcionario_ID")
                         .HasColumnType("int");
 
+                    b.Property<int?>("Funcionario_ID1")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("HorasTabalhadas_Data")
                         .HasColumnType("datetime2");
 
@@ -85,7 +91,7 @@ namespace MyTE_Migration.Migrations
 
                     b.HasKey("HorasTrabalhadas_ID");
 
-                    b.HasIndex("Funcionario_ID");
+                    b.HasIndex("Funcionario_ID1");
 
                     b.ToTable("HorasTrabalhadas");
                 });
@@ -115,17 +121,10 @@ namespace MyTE_Migration.Migrations
             modelBuilder.Entity("MyTE_Migration.Areas.Admin.Models.HorasTrabalhadas", b =>
                 {
                     b.HasOne("MyTE_Migration.Areas.Admin.Models.Funcionario", "funcionario")
-                        .WithMany("horasTrabalhadas")
-                        .HasForeignKey("Funcionario_ID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany()
+                        .HasForeignKey("Funcionario_ID1");
 
                     b.Navigation("funcionario");
-                });
-
-            modelBuilder.Entity("MyTE_Migration.Areas.Admin.Models.Funcionario", b =>
-                {
-                    b.Navigation("horasTrabalhadas");
                 });
 #pragma warning restore 612, 618
         }

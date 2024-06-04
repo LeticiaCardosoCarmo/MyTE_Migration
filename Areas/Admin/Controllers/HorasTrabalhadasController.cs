@@ -1,144 +1,273 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MyTE_Migration.Areas.Admin.Models;
+using MyTE_Migration.Areas.Admin.Service;
 using MyTE_Migration.Context;
+using System.Globalization;
 
-namespace MyTE_Migration.Areas.Admin.Controllers
+namespace MyTE_Migration.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles = "Admin")]
     public class HorasTrabalhadasController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly IHourRepository _hourRepository;
+        private readonly AppDbContext _appDbContext;
+        private readonly IWBSRepository _wsbRepository;
+        private readonly UserManager<IdentityUser> _userManager; // Use IdentityUser ou a classe que você estiver usando para o login
+        private readonly LoginDbContext _loginDbContext; // Adicionar LoginDbContext
+        private readonly DateTime MinDate = new DateTime(2024, 1, 1);
+        private readonly DateTime MaxDate = new DateTime(2024, 12, 31);
 
-        public HorasTrabalhadasController(AppDbContext context)
+        public HorasTrabalhadasController(AppDbContext context, IHourRepository hourRepository, IWBSRepository wbsRepository, UserManager<IdentityUser> userManager, LoginDbContext loginDbContext)
         {
-            _context = context;
+            _hourRepository = hourRepository;
+            _appDbContext = context;
+            _wsbRepository = wbsRepository;
+            _userManager = userManager; // Injetar UserManager
+            _loginDbContext = loginDbContext; // Injetar LoginDbContext
         }
 
-        // GET: HorasTrabalhadas
-        public async Task<IActionResult> Index()
+        [HttpGet]
+        public async Task<IActionResult> LancamentoHoras()
         {
-            return View(await _context.HorasTrabalhadas.ToListAsync());
-        }
+            var startOfFortnight = GetStartOfCurrentFortnight();
+            var endOfFortnight = GetEndOfFortnight(startOfFortnight);
 
+            ViewBag.StartOfFortnight = startOfFortnight;
+            ViewBag.EndOfFortnight = endOfFortnight;
 
+            try
+            {
+                var wbsCodes = await _wsbRepository.GetAllWbsCodesAsync();
+                ViewBag.WBSCodes = wbsCodes ?? new List<string>();
+            }
+            catch (Exception ex)
+            {
+                // Log error
+                Console.WriteLine($"Error fetching WBS codes: {ex.Message}");
+                ViewBag.WBSCodes = new List<string>();
+            }
 
-        // GET: HorasTrabalhadas/Create
-        public IActionResult Create()
-        {
             return View();
         }
 
-        // POST: HorasTrabalhadas/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("HorasTrabalhadas_ID,Funcionario_ID,WBS_ID,HorasTabalhadas_Data,HorasTrabalhadas_QtdeHoras")] HorasTrabalhadas horasTrabalhadas)
+        public async Task<IActionResult> LancamentoHoras(Dictionary<string, Dictionary<string, int>> hours, string[] WBS)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(horasTrabalhadas);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(horasTrabalhadas);
-        }
+            // Obter o ID do usuário logado
+            var userId = _userManager.GetUserId(User);
 
-        // GET: HorasTrabalhadas/Edit/5
-        public async Task<IActionResult> Update(int? id)
-        {
-            if (id == null)
+            // Encontrar o usuário logado no contexto de login
+            var loginUser = await _userManager.FindByIdAsync(userId);
+
+            if (loginUser == null)
             {
-                return NotFound();
+                // Lidar com o caso em que o usuário logado não é encontrado
+                return NotFound("Usuário não encontrado.");
             }
 
-            var horasTrabalhadas = await _context.HorasTrabalhadas.FindAsync(id);
-            if (horasTrabalhadas == null)
-            {
-                return NotFound();
-            }
-            return View(horasTrabalhadas);
-        }
+            // Supondo que você tenha uma maneira de mapear o usuário logado para um funcionário no AppDbContext
+            var funcionario = await _appDbContext.Funcionario.FirstOrDefaultAsync(f => f.Funcionario_Email == loginUser.Email);
 
-        // POST: HorasTrabalhadas/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(int id, [Bind("HorasTrabalhadas_ID,Funcionario_ID,WBS_ID,HorasTabalhadas_Data,HorasTrabalhadas_QtdeHoras")] HorasTrabalhadas horasTrabalhadas)
-        {
-            if (id != horasTrabalhadas.HorasTrabalhadas_ID)
+            if (funcionario == null)
             {
-                return NotFound();
+                // Lidar com o caso em que o funcionário não é encontrado no AppDbContext
+                return NotFound("Funcionário não encontrado.");
             }
 
-            if (ModelState.IsValid)
+            var totalHoursPerRow = new int[WBS.Length];
+            bool hasErrors = false;
+            for (int i = 0; i < WBS.Length; i++)
             {
-                try
+                if (hours.TryGetValue(i.ToString(), out var dailyHours))
                 {
-                    _context.Update(horasTrabalhadas);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!HorasTrabalhadasExists(horasTrabalhadas.HorasTrabalhadas_ID))
+                    foreach (var dayHours in dailyHours)
                     {
-                        return NotFound();
+                        totalHoursPerRow[i] += dayHours.Value;
                     }
-                    else
+
+                    if (totalHoursPerRow[i] < 8)
                     {
-                        throw;
+                        ModelState.AddModelError($"hours[{i}]", "Total de horas não pode ser menor que 8 horas.");
+                        hasErrors = true;
                     }
                 }
-                return RedirectToAction(nameof(Index));
             }
-            return View(horasTrabalhadas);
+
+            if (hasErrors)
+            {
+                var startQuinzena = GetStartOfCurrentFortnight();
+                var endQuinzena = GetEndOfFortnight(startQuinzena);
+                ViewBag.StartOfFortnight = startQuinzena;
+                ViewBag.EndOfFortnight = endQuinzena;
+                ViewBag.Hours = hours;
+                ViewBag.WBS = WBS;
+
+                return View();
+            }
+
+            if (ModelState.IsValid)
+            {
+                var horasTrabalhadasList = new List<HorasTrabalhadas>();
+
+                for (int i = 0; i < WBS.Length; i++)
+                {
+                    if (hours.TryGetValue(i.ToString(), out var dailyHours))
+                    {
+                        foreach (var dateHours in dailyHours)
+                        {
+                            var date = DateTime.Parse(dateHours.Key);
+                            var qtdeHoras = dateHours.Value;
+
+                            var horasTrabalhadas = new HorasTrabalhadas
+                            {
+                                Funcionario_ID = funcionario.Funcionario_ID, // Atribuir o ID do funcionário logado
+                                WBS_ID = int.Parse(WBS[i]), // Se WBS[i] for um código, você precisa converter para o ID correspondente
+                                HorasTabalhadas_Data = date,
+                                HorasTrabalhadas_QtdeHoras = qtdeHoras
+                            };
+
+                            horasTrabalhadasList.Add(horasTrabalhadas);
+                        }
+                    }
+                }
+
+                await _appDbContext.HorasTrabalhadas.AddRangeAsync(horasTrabalhadasList);
+                await _appDbContext.SaveChangesAsync();
+
+                return RedirectToAction("HorasTrabalhadas");
+            }
+
+            // Recarregar ViewBags se a validação falhar
+            var startOfFortnight = GetStartOfCurrentFortnight();
+            var endOfFortnight = GetEndOfFortnight(startOfFortnight);
+            ViewBag.StartOfFortnight = startOfFortnight;
+            ViewBag.EndOfFortnight = endOfFortnight;
+            ViewBag.Hours = hours;
+            ViewBag.WBS = WBS;
+
+            return View();
         }
 
-        // GET: HorasTrabalhadas/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        [HttpPost]
+        public IActionResult PreviousFortnight(DateTime currentStartOfFortnight)
         {
-            if (id == null)
+            var previousStartOfFortnight = GetPreviousFortnightStart(currentStartOfFortnight);
+            if (previousStartOfFortnight < MinDate)
             {
-                return NotFound();
+                previousStartOfFortnight = MinDate;
             }
+            var previousEndOfFortnight = GetEndOfFortnight(previousStartOfFortnight);
 
-            var horasTrabalhadas = await _context.HorasTrabalhadas
-                .FirstOrDefaultAsync(m => m.HorasTrabalhadas_ID == id);
-            if (horasTrabalhadas == null)
-            {
-                return NotFound();
-            }
+            ViewBag.StartOfFortnight = previousStartOfFortnight;
+            ViewBag.EndOfFortnight = previousEndOfFortnight;
 
-            return View(horasTrabalhadas);
+            return View("HorasTrabalhadas");
         }
 
-        // POST: HorasTrabalhadas/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        [HttpPost]
+        public IActionResult NextFortnight(DateTime currentStartOfFortnight)
         {
-            var horasTrabalhadas = await _context.HorasTrabalhadas.FindAsync(id);
-            if (horasTrabalhadas != null)
+            var nextStartOfFortnight = GetNextFortnightStart(currentStartOfFortnight);
+            if (nextStartOfFortnight > MaxDate)
             {
-                _context.HorasTrabalhadas.Remove(horasTrabalhadas);
+                nextStartOfFortnight = GetStartOfFortnight(MaxDate);
             }
+            var nextEndOfFortnight = GetEndOfFortnight(nextStartOfFortnight);
 
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            ViewBag.StartOfFortnight = nextStartOfFortnight;
+            ViewBag.EndOfFortnight = nextEndOfFortnight;
+
+            return View("HorasTrabalhadas");
         }
 
-        private bool HorasTrabalhadasExists(int id)
+        [HttpPost]
+        public IActionResult SelectFortnight(DateTime selectedDate)
         {
-            return _context.HorasTrabalhadas.Any(e => e.HorasTrabalhadas_ID == id);
+            var startOfSelectedFortnight = GetStartOfFortnight(selectedDate);
+            if (startOfSelectedFortnight < MinDate)
+            {
+                startOfSelectedFortnight = MinDate;
+            }
+            if (startOfSelectedFortnight > MaxDate)
+            {
+                startOfSelectedFortnight = GetStartOfFortnight(MaxDate);
+            }
+            var endOfSelectedFortnight = GetEndOfFortnight(startOfSelectedFortnight);
+
+            ViewBag.StartOfFortnight = startOfSelectedFortnight;
+            ViewBag.EndOfFortnight = endOfSelectedFortnight;
+
+            return View("HorasTrabalhadas");
+        }
+
+        private DateTime GetStartOfCurrentFortnight()
+        {
+            DateTime today = DateTime.Today;
+            if (today.Day <= 15)
+            {
+                return new DateTime(today.Year, today.Month, 1);
+            }
+            else
+            {
+                return new DateTime(today.Year, today.Month, 16);
+            }
+        }
+
+        private DateTime GetEndOfFortnight(DateTime startOfFortnight)
+        {
+            if (startOfFortnight.Day == 1)
+            {
+                return new DateTime(startOfFortnight.Year, startOfFortnight.Month, 15);
+            }
+            else
+            {
+                return new DateTime(startOfFortnight.Year, startOfFortnight.Month, DateTime.DaysInMonth(startOfFortnight.Year, startOfFortnight.Month));
+            }
+        }
+
+        private DateTime GetPreviousFortnightStart(DateTime currentStartOfFortnight)
+        {
+            if (currentStartOfFortnight.Day == 1)
+            {
+                return new DateTime(currentStartOfFortnight.Year, currentStartOfFortnight.Month, 16).AddMonths(-1);
+            }
+            else
+            {
+                return new DateTime(currentStartOfFortnight.Year, currentStartOfFortnight.Month, 1);
+            }
+        }
+
+        private DateTime GetNextFortnightStart(DateTime currentStartOfFortnight)
+        {
+            if (currentStartOfFortnight.Day == 1)
+            {
+                return new DateTime(currentStartOfFortnight.Year, currentStartOfFortnight.Month, 16);
+            }
+            else
+            {
+                return new DateTime(currentStartOfFortnight.Year, currentStartOfFortnight.Month, 1).AddMonths(1);
+            }
+        }
+
+        private DateTime GetStartOfFortnight(DateTime date)
+        {
+            if (date.Day <= 15)
+            {
+                return new DateTime(date.Year, date.Month, 1);
+            }
+            else
+            {
+                return new DateTime(date.Year, date.Month, 16);
+            }
+        }
+
+        private string GetDayOfWeekInEnglish(DateTime date)
+        {
+            return date.ToString("dddd", new CultureInfo("en-US"));
         }
     }
 }

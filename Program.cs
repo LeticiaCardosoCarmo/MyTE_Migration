@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using MyTE_Migration.Areas.Admin.Controllers;
+using MyTE_Migration.Areas.Admin.Service;
 using MyTE_Migration.Context;
 using MyTE_Migration.Models;
 using MyTE_Migration.Services;
@@ -28,8 +30,12 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.AccessDeniedPath = $"/Account/AccessDenied";
 });
 
+builder.Services.AddScoped<IHourRepository, HourRepository>();
+builder.Services.AddScoped<IWBSRepository, WBSRepository>();
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
 
 // definindo a complexidade da senha
 

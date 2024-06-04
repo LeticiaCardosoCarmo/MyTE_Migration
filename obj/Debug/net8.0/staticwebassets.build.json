@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7D1LSOow+BE0xkblI2C/tH5uyAqOYaUlqfgbs+LgAt0=",
+  "Hash": "YUsMkpRbP+CmQiwHTwaR19sOQp74rcB2gOAoxdrvfls=",
   "Source": "MyTE_Migration",
   "BasePath": "_content/MyTE_Migration",
   "Mode": "Default",
@@ -167,6 +167,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Header.css"
+    },
+    {
+      "Identity": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\css\\LancamentoHoras.css",
+      "SourceId": "MyTE_Migration",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\",
+      "BasePath": "_content/MyTE_Migration",
+      "RelativePath": "css/LancamentoHoras.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\LancamentoHoras.css"
     },
     {
       "Identity": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\css\\Login.css",
