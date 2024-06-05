@@ -1,0 +1,240 @@
+﻿@model HorasTrabalhadas
+@{
+    ViewData["Title"] = "Lançamento de Horas";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/RegistroHoras/RegHoras.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/RegistroHoras/StyleTable.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/bootstrap/boostrap.min.css" />
+    <link rel="stylesheet" href="https://icons.getbootstrap.com/icons/journal-code">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch/css@3">
+</head>
+
+<header>
+    <link rel="stylesheet" href="~/css/Header.css" asp-append-version="true" />
+
+    <div class="header">
+        <img src="~/images/icones/profile-2.svg" class="icone-usuario" />
+        <img src="~/images/avanacle-logo.png" class="avanacle-logo" />
+    </div>
+</header>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <nav class="nav-nav">
+                <div class="ola">Olá, Funcionário!</div>
+                <ul class="container-nav nav nav-pills flex-column mt-2">
+                    <li class="nav-item-lista">
+                        <a asp-area="Usuario" asp-controller="HorasTrabalhadas" asp-action="LancamentoHoras" class="text-secondary text-decoration-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 viewBox="0 0 16 16">
+                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
+                            </svg>
+                            Lançamento de horas
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </aside>
+        <div class="bd-cheatsheet bg-body">
+            <section id="content">
+                <main class="main-espace">
+                    <section class="content">
+                        <div class="form-container">
+                            <div class="btn-toolbar mb-2 mb-md-0 btn-submit">
+                                <div class="btn-group mr-2">
+                                </div>
+                                <div class="btn-group mr-4">
+                                    <input type="date" class="form-control date-btn">
+                                    <a asp-area="Usuario" asp-controller="Usuario" asp-action="Index" class="btn btn-sm btn-outline-secondary save-btn">
+                                        SALVAR
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                             class="bi bi-floppy" viewBox="0 0 16 16">
+                                            <path d="M11 2H9v3h2z" />
+                                            <path d="M1.5 0h11.586a1.5 1.5 0 0 1 1.06.44l1.415 1.414A1.5 1.5 0 0 1 16 2.914V14.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 14.5v-13A1.5 1.5 0 0 1 1.5 0M1 1.5v13a.5.5 0 0 0 .5.5H2v-4.5A1.5 1.5 0 0 1 3.5 9h9a1.5 1.5 0 0 1 1.5 1.5V15h.5a.5.5 0 0 0 .5-.5V2.914a.5.5 0 0 0-.146-.353l-1.415-1.415A.5.5 0 0 0 13.086 1H13v4.5A1.5 1.5 0 0 1 11.5 7h-7A1.5 1.5 0 0 1 3 5.5V1H1.5a.5.5 0 0 0-.5.5m3 4a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5V1H4zM3 15h10v-4.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5z" />
+                                        </svg>
+                                        </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </section>
+            <div class="container mts-4">
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <tr>
+                            <th class="colour-main">Código WBS</th>
+                            <th class="colour-main" readonly>sáb 01</th>
+                            <th class="colour-main" readonly>dom 02</th>
+                            <th class="colour-main">seg 03</th>
+                            <th class="colour-main">ter 04</th>
+                            <th class="colour-main">qua 05</th>
+                            <th class="colour-main">qui 06</th>
+                            <th class="colour-main">sex 07</th>
+                            <th class="colour-main" readonly>sáb 08</th>
+                            <th class="colour-main" readonly>dom 09</th>
+                            <th class="colour-main">seg 10</th>
+                            <th class="colour-main">ter 11</th>
+                            <th class="colour-main">qua 12</th>
+                            <th class="colour-main">qui 13</th>
+                            <th class="colour-main">sex 14</th>
+                            <th class="colour-main" readonly>sáb 15</th>
+                            <th class="colour-main" readonly>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <select name="WBS[]" class="form-control">
+                                    <option value="">Selecione a WBS</option>
+                                    @if (ViewBag.WBSCodes != null && ViewBag.WBSCodes.Count > 0)
+                                    {
+                                        foreach (var wbsCode in ViewBag.WBSCodes)
+                                        {
+                                            <option value="@wbsCode">@wbsCode</option>
+                                        }
+                                    }
+                                </select>
+                            </td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="total" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select name="WBS[]" class="form-control">
+                                    <option value="">Selecione a WBS</option>
+                                    @if (ViewBag.WBSCodes != null && ViewBag.WBSCodes.Count > 0)
+                                    {
+                                        foreach (var wbsCode in ViewBag.WBSCodes)
+                                        {
+                                            <option value="@wbsCode">@wbsCode</option>
+                                        }
+                                    }
+                                </select>
+                            </td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="total" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select name="WBS[]" class="form-control">
+                                    <option value="">Selecione a WBS</option>
+                                    @if (ViewBag.WBSCodes != null && ViewBag.WBSCodes.Count > 0)
+                                    {
+                                        foreach (var wbsCode in ViewBag.WBSCodes)
+                                        {
+                                            <option value="@wbsCode">@wbsCode</option>
+                                        }
+                                    }
+                                </select>
+                            </td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="total" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select name="WBS[]" class="form-control">
+                                    <option value="">Selecione a WBS</option>
+                                    @if (ViewBag.WBSCodes != null && ViewBag.WBSCodes.Count > 0)
+                                    {
+                                        foreach (var wbsCode in ViewBag.WBSCodes)
+                                        {
+                                            <option value="@wbsCode">@wbsCode</option>
+                                        }
+                                    }
+                                </select>
+                            </td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="total" readonly></td>
+                        </tr>
+                        <tr>
+                            <td class="total-hour">
+                                <input class="textColumn total-hour" type="text" value="Total de horas" readonly>
+                            </td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="grand-total colour-main" readonly></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/js/cheatsheet.js"></script>
+    <script src="~/js/main.js"></script>
+</body> 

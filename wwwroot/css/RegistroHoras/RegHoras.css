@@ -1,0 +1,81 @@
+﻿body {
+    font-family: 'Segoe UI';
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/*.sidebar {
+    width: 320px;
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    display: flex;*/
+    /* flex-direction: column; */
+    /*justify-content: space-between;*/
+    /* align-items: center; */
+    /* margin-top: 0px; */
+    /* padding-right: 10px; */
+    /* padding-left: 10px; */
+    /*flex-wrap: wrap;
+}*/
+
+.nav-nav {
+    margin-top: 30px;
+    /*align-items: center;*/
+}
+
+    .nav-nav .ola {
+        font-family: 'Segoe UI';
+        font-weight: bold;
+        font-size: 25px;
+        color: #FF5800;
+        margin-bottom: 70px;
+    }
+
+.nav-item-lista {
+    align-content: center;
+    margin-bottom: 5px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+    /*    nav ul li {
+        margin-bottom: 210px;
+    }*/
+
+    nav ul li a {
+        text-decoration: none;
+        color: #363636;
+        font-size: 20px;
+        margin-top: 10px;
+    }
+
+        nav ul li a.active {
+            color: #f77e11;
+        }
+
+#logout {
+    margin-top: 210px;
+}
+
+    #logout a {
+        text-decoration: none;
+        color: #FF5800;
+        width: 208px;
+        height: 89px;
+        font-size: 20px;
+        /* padding: 50px;
+    align-self: flex-end;
+    justify-self: center;*/
+    }

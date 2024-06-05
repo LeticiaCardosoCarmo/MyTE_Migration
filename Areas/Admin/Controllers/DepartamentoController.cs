@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MyTE_Migration.Areas.Admin.Models;
 using MyTE_Migration.Context;
@@ -22,21 +17,16 @@ namespace MyTE_Migration.Areas.Admin.Controllers
             _context = context;
         }
 
-        // GET: Departamento
         public async Task<IActionResult> Index()
         {
             return View(await _context.Departamento.ToListAsync());
         }
 
-        // GET: Departamento/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Departamento/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Departamento_ID,Departamento_Nome")] Departamento departamento)
@@ -50,7 +40,6 @@ namespace MyTE_Migration.Areas.Admin.Controllers
             return View(departamento);
         }
 
-        // GET: Departamento/Edit/5
         public async Task<IActionResult> Update(int? id)
         {
             if (id == null)
@@ -66,9 +55,6 @@ namespace MyTE_Migration.Areas.Admin.Controllers
             return View(departamento);
         }
 
-        // POST: Departamento/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(int id, [Bind("Departamento_ID,Departamento_Nome")] Departamento departamento)
@@ -101,7 +87,6 @@ namespace MyTE_Migration.Areas.Admin.Controllers
             return View(departamento);
         }
 
-        // GET: Departamento/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -119,7 +104,6 @@ namespace MyTE_Migration.Areas.Admin.Controllers
             return View(departamento);
         }
 
-        // POST: Departamento/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

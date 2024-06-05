@@ -15,7 +15,7 @@
 
 
 .sidebar {
-    width: 230px;
+    width: 320px;
     background-color: #fff;
     border-right: 1px solid #ddd;
     padding-right: 10px;
@@ -131,22 +131,45 @@ h2 {
 }
 
 
-
 label {
     width: 150px; /* Ajuste a largura conforme necessário */
-
+    margin-top: 10px;
     font-size: 18px;
 }
 
 
+input[type="text"], input[type="email"] {
+    flex: 1;
+    padding: 10px;
+    padding-left: 90px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f4f8ff;
+    margin-left: 20px; /* Espaço entre label e input */
+    margin-top: 20px;
+}
 
-input[type="text"], input[type="email"], input[type="date"] {
+input[type="date"] {
     flex: 1;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f4f8ff;
-    margin-left: 50px; /* Espaço entre label e input */
+    margin-left: 20px; /* Espaço entre label e input */
+    margin-top: 10px;
+}
+
+
+input[type="password"] {
+    flex: 1;
+    padding: 10px;
+    padding-left: 90px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f4f8ff;
+    margin-left: 20px; /* Espaço entre label e input */
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 
@@ -159,13 +182,12 @@ input[type="text"], input[type="email"], input[type="date"] {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    margin-top: 500px;
+/*    margin-top: 500px;*/
     margin-left: 443px;
     margin-bottom: 10px;
     text-decoration: none;
     font-weight: bold;
 }
-
 
 
 .save-btn:hover {

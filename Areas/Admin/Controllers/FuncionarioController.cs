@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -27,20 +23,16 @@ namespace MyTE_Migration.Areas.Admin.Controllers
             _roleManager = roleManager;
         }
 
-        // GET: Funcionario
         public async Task<IActionResult> Index()
         {
             return View(await _context.Funcionario.ToListAsync());
         }
-
-        // GET: Funcionario/Create
         public IActionResult Create()
         {
             ViewData["Roles"] = new SelectList(_roleManager.Roles.ToList(), "Name", "Name");
             return View();
         }
 
-        // POST: Funcionario/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CreateFuncionarioViewModel model)
@@ -83,7 +75,6 @@ namespace MyTE_Migration.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: Funcionario/Edit/5
         public async Task<IActionResult> Update(int? id)
         {
             if (id == null)
@@ -118,8 +109,6 @@ namespace MyTE_Migration.Areas.Admin.Controllers
             ViewData["Roles"] = new SelectList(_roleManager.Roles, "Name", "Name");
             return View(model);
         }
-
-        // POST: Funcionario/Edit/5
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -180,7 +169,6 @@ namespace MyTE_Migration.Areas.Admin.Controllers
             return View(model);
         }
 
-        // GET: Funcionario/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -198,7 +186,6 @@ namespace MyTE_Migration.Areas.Admin.Controllers
             return View(funcionario);
         }
 
-        // POST: Funcionario/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

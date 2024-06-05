@@ -15,7 +15,7 @@
 
 
 .sidebar {
-    width: 230px;
+    width: 320px;
     background-color: #fff;
     border-right: 1px solid #ddd;
     display: flex;
@@ -23,7 +23,6 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 0px;
-    width: 230px;
     padding-right: 10px;
     padding-left: 10px;
 }
@@ -107,13 +106,14 @@ nav ul {
 
 .content {
     background-color: #fff;
-    padding: 10px;
-    padding-top: 20px;
+    padding: 30px;
+    padding-top: 30px;
     border-radius: 10px;
-    margin-left: 15px;
+    margin-left: 40px;
     width: 950px;
     position: relative;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin-top: -150px;
 }
 
 
@@ -151,7 +151,8 @@ nav ul {
     font-size: 16px;
     font-weight: bold;
     text-decoration: none;
-    margin-left: 500px; /*alteração*/
+    margin-left: 10px; /*alteração*/
+    margin-bottom: 10px;
 }
 
 

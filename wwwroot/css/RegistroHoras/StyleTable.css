@@ -1,0 +1,108 @@
+﻿.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x)* .5);
+    padding-left: calc(var(--bs-gutter-x)* .5);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+:root {
+    --cor-principal: #ee5703;
+}
+
+.colour-main {
+    color: var(--cor-principal) !important;
+}
+
+.sub-btn {
+    background-color: #363636 !important;
+    color: #fff !important;
+    border-radius: 13px !important;
+}
+
+.date-btn {
+    margin-right: 33px !important;
+    color: var(--cor-principal) !important;
+}
+
+.save-btn {
+    background-color: var(--cor-principal) !important;
+    color: #fff !important;
+    border-radius: 13px !important;
+    display: inline-flex !important;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.bi-floppy {
+    margin-left: 10px;
+}
+
+.textColumn {
+    width: 130px !important;
+}
+
+.mts-4 {
+    margin-top: 1.5rem !important;
+    height: 100%;
+    padding-bottom: 50.5em;
+}
+
+.content {
+    padding: 20px;
+    margin: 0 auto;
+    /* width: 900px; */
+    /* position: relative; */
+    /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); */
+    /* display: table; */
+    width: 100%;
+    /*width: 32px;
+    height: 32px;*/
+    margin-top: 200px;
+}
+
+.btn-submit {
+    display: flex !important;
+    justify-content: space-between !important;
+}
+
+table {
+    width: 100%;
+    /*table-layout: fixed;*/
+    height: 32px;
+}
+
+.total-hour {
+    background-color: var(--cor-principal) !important;
+    color: #fff !important;
+}
+
+input[type="number"], input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    text-align: center;
+    height: 32px;
+}
+
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.main-espace {
+    margin-top: 1%;
+}
+
+.bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+}

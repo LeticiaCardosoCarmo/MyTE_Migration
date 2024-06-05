@@ -15,16 +15,16 @@
 
 
 .sidebar {
-    width: 230px;
+    width: 320px;
     background-color: #fff;
     border-right: 1px solid #ddd;
-    padding-right: 10px;
-    padding-left: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     margin-top: 0px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .nav-nav {

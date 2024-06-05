@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4F30E05F-CBE7-490C-9F0C-34DF69E08B5A}|MyTE_Migration.csproj|c:\\users\\l.cardoso.do.carmo\\desktop\\myte_migration\\areas\\admin\\views\\horastrabalhadas\\lancamentohoras.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4F30E05F-CBE7-490C-9F0C-34DF69E08B5A}|MyTE_Migration.csproj|solutionrelative:areas\\admin\\views\\horastrabalhadas\\lancamentohoras.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{4F30E05F-CBE7-490C-9F0C-34DF69E08B5A}|MyTE_Migration.csproj|c:\\users\\l.cardoso.do.carmo\\desktop\\myte_migration\\wwwroot\\css\\departamento.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{4F30E05F-CBE7-490C-9F0C-34DF69E08B5A}|MyTE_Migration.csproj|solutionrelative:wwwroot\\css\\departamento.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F30E05F-CBE7-490C-9F0C-34DF69E08B5A}|MyTE_Migration.csproj|c:\\users\\l.cardoso.do.carmo\\desktop\\myte_migration\\areas\\admin\\controllers\\horastrabalhadascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F30E05F-CBE7-490C-9F0C-34DF69E08B5A}|MyTE_Migration.csproj|solutionrelative:areas\\admin\\controllers\\horastrabalhadascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4F30E05F-CBE7-490C-9F0C-34DF69E08B5A}|MyTE_Migration.csproj|c:\\users\\l.cardoso.do.carmo\\desktop\\myte_migration\\wwwroot\\css\\funcionario.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{4F30E05F-CBE7-490C-9F0C-34DF69E08B5A}|MyTE_Migration.csproj|solutionrelative:wwwroot\\css\\funcionario.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,26 +31,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "HorasTrabalhadasController.cs",
-              "DocumentMoniker": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\Areas\\Admin\\Controllers\\HorasTrabalhadasController.cs",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\HorasTrabalhadasController.cs",
-              "ToolTip": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\Areas\\Admin\\Controllers\\HorasTrabalhadasController.cs",
-              "RelativeToolTip": "Areas\\Admin\\Controllers\\HorasTrabalhadasController.cs",
-              "ViewState": "AQIAACAAAAAAAAAAAAAAwC0AAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T21:36:05.072Z"
+              "Title": "Funcionario.css",
+              "DocumentMoniker": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\css\\Funcionario.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\Funcionario.css",
+              "ToolTip": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\css\\Funcionario.css",
+              "RelativeToolTip": "wwwroot\\css\\Funcionario.css",
+              "ViewState": "AQIAALEAAAAAAAAAAAAAAL4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-06-05T22:21:15.518Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "LancamentoHoras.cshtml",
-              "DocumentMoniker": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\Areas\\Admin\\Views\\HorasTrabalhadas\\LancamentoHoras.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\HorasTrabalhadas\\LancamentoHoras.cshtml",
-              "ToolTip": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\Areas\\Admin\\Views\\HorasTrabalhadas\\LancamentoHoras.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\HorasTrabalhadas\\LancamentoHoras.cshtml",
-              "ViewState": "AQIAAFgBAAAAAAAAAAAAAAoAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-04T20:43:22.058Z",
+              "Title": "Departamento.css",
+              "DocumentMoniker": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\css\\Departamento.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\Departamento.css",
+              "ToolTip": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\css\\Departamento.css",
+              "RelativeToolTip": "wwwroot\\css\\Departamento.css",
+              "ViewState": "AQIAAMwAAAAAAAAAAAAAANoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-06-05T22:16:16.839Z",
               "EditorCaption": ""
             }
           ]

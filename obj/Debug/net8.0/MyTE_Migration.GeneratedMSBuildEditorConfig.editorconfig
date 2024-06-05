@@ -62,24 +62,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRnVuY2lvbmFyaW9cVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Areas/Admin/Views/HorasTrabalhadas/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9yYXNUcmFiYWxoYWRhc1xDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Areas/Admin/Views/HorasTrabalhadas/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9yYXNUcmFiYWxoYWRhc1xEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Areas/Admin/Views/HorasTrabalhadas/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9yYXNUcmFiYWxoYWRhc1xJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Areas/Admin/Views/HorasTrabalhadas/LancamentoHoras.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9yYXNUcmFiYWxoYWRhc1xMYW5jYW1lbnRvSG9yYXMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Areas/Admin/Views/HorasTrabalhadas/Update.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9yYXNUcmFiYWxoYWRhc1xVcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Areas/Admin/Views/WBS/Create.cshtml]
@@ -110,12 +94,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcR2VyZW50ZVxWaWV3c1xHZXJlbnRlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Areas/Gerente/Views/HorasTrabalhadas/LancamentoHoras.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcR2VyZW50ZVxWaWV3c1xIb3Jhc1RyYWJhbGhhZGFzXExhbmNhbWVudG9Ib3Jhcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Areas/Gerente/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcR2VyZW50ZVxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Areas/Gerente/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcR2VyZW50ZVxWaWV3c1xfVmlld1N0YXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Areas/Usuario/Views/HorasTrabalhadas/LancamentoHoras.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXN1YXJpb1xWaWV3c1xIb3Jhc1RyYWJhbGhhZGFzXExhbmNhbWVudG9Ib3Jhcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/l.cardoso.do.carmo/Desktop/MyTE_Migration/Areas/Usuario/Views/Usuario/Index.cshtml]

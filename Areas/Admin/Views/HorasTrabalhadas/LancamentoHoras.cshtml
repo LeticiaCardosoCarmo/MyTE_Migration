@@ -1,111 +1,124 @@
-﻿﻿@{
-    ViewData["Title"] = "Lançamento de Horas";
+﻿@model HorasTrabalhadas
+
+@{
+    ViewData["Title"] = "Lançamento de Horas - Admin";
 }
+
 <head>
-    @* <link rel="stylesheet" href="~/css/LancamentoHoras.css" asp-append-version="true" /> *@
+    <link rel="stylesheet" href="~/css/RegistroHoras/AdminHoras.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/RegistroHoras/StyleTable.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/bootstrap/boostrap.min.css" />
+    <link rel="stylesheet" href="https://icons.getbootstrap.com/icons/journal-code">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch/css@3">
 </head>
+
 <header>
     <link rel="stylesheet" href="~/css/Header.css" asp-append-version="true" />
+
     <div class="header">
-        <div class="text-center">
-            <h2>@ViewData["Title"]</h2>
-        </div>
-        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" class="logout-form">
-            <button type="submit" class="btn">Sair</button>
-        </form>
         <img src="~/images/icones/profile-2.svg" class="icone-usuario" />
         <img src="~/images/avanacle-logo.png" class="avanacle-logo" />
     </div>
 </header>
-@*
-<div class="text-center">
-    <h1>@ViewData["Title"]</h1> *@
 
-<div class="container mt-5">
-    <div class="row mb-3 justify-content-between align-content-around">
-        <div class="col-auto">
-            <form method="post" asp-action="PreviousFortnight" class="inline-form">
-                <input type="hidden" name="currentStartOfFortnight" value="@ViewBag.StartOfFortnight.ToString("o")" />
-                <button type="submit" class="btn custom-btn">Quinzena Anterior</button>
-            </form>
-        </div>
-        <div class="col-auto">
-            <form method="post" asp-action="SelectFortnight" class="inline-form">
-                <select name="selectedDate" class="form-control custom-select" onchange="this.form.submit()">
-                    @{
-                        var minDate = new DateTime(2024, 1, 1);
-                        var maxDate = new DateTime(2030, 12, 31);
-                        var currentYear = maxDate.Year;
-                        var startYear = minDate.Year;
-                    }
-                    @for (int year = startYear; year <= currentYear; year++)
-                    {
-                        @for (int month = 1; month <= 12; month++)
-                        {
-                            var firstHalf = new DateTime(year, month, 1).ToString("o");
-                            var secondHalf = new DateTime(year, month, 16).ToString("o");
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <nav class="nav-nav">
+                <div class="ola">Olá, Administrador!</div>
+                <ul class="container-nav nav nav-pills flex-column mt-2">
+                    <li class="nav-item-lista">
+                        <a asp-area="Admin" asp-controller="HorasTrabalhadas" asp-action="LancamentoHoras" class="text-secondary text-decoration-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 viewBox="0 0 16 16">
+                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
+                            </svg>
+                            Lançamento de horas
+                        </a>
+                    </li>
+                    <li class="nav-item-lista">
+                        <a asp-area="Admin" asp-controller="Funcionario" asp-action="Index" class="text-secondary text-decoration-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person"
+                                 viewBox="0 0 16 16">
+                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+                            </svg>
+                            Gerenciar funcionários
+                        </a>
+                    </li>
+                    <li class="nav-item-lista">
+                        <a asp-area="Admin" asp-controller="Departamento" asp-action="Index" class="text-secondary text-decoration-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-folder"
+                                 viewBox="0 0 16 16">
+                                <path d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139q.323-.119.684-.12h5.396z" />
+                            </svg>
 
-                            if (new DateTime(year, month, 1) >= minDate && new DateTime(year, month, 1) <= maxDate)
-                            {
-                                <option value="@firstHalf" selected="@((ViewBag.StartOfFortnight?.Month == month && ViewBag.StartOfFortnight?.Year == year && ViewBag.StartOfFortnight?.Day == 1) ? "selected" : null)">
-                                    @($"{year} - {month} (Primeira Quinzena)")
-                                </option>
-                            }
-                            if (new DateTime(year, month, 16) >= minDate && new DateTime(year, month, 16) <= maxDate)
-                            {
-                                <option value="@secondHalf" selected="@((ViewBag.StartOfFortnight?.Month == month && ViewBag.StartOfFortnight?.Year == year && ViewBag.StartOfFortnight?.Day == 16) ? "selected" : null)">
-                                    @($"{year} - {month} (Segunda Quinzena)")
-                                </option>
-                            }
-                        }
-                    }
-                </select>
-            </form>
-        </div>
-        <div class="col-auto">
-            <form method="post" asp-action="NextFortnight" class="inline-form">
-                <input type="hidden" name="currentStartOfFortnight" value="@ViewBag.StartOfFortnight.ToString("o")" />
-                <button type="submit" class="btn custom-btn">Quinzena Posterior</button>
-            </form>
-        </div>
-    </div>
-    <div class="table-container">
-        <form method="post" asp-action="LancamentoHoras">
-            <table class="table table-bordered table-responsive">
-                <thead class="thead-light">
-                    <tr>
-                        <th scope="col">Código WBS</th>
-                        @if (ViewBag.StartOfFortnight != null && ViewBag.EndOfFortnight != null)
-                        {
-                            @for (DateTime date = (DateTime)ViewBag.StartOfFortnight; date <= (DateTime)ViewBag.EndOfFortnight; date = date.AddDays(1))
-                            {
-                                var dayOfWeek = date.DayOfWeek;
-                                var dayClass = (dayOfWeek == DayOfWeek.Saturday || dayOfWeek == DayOfWeek.Sunday) ? "table-secondary" : "";
-                                <th scope="col" class="@dayClass text-center">@date.ToString("dd/MM/yyyy")</th>
-                            }
-                        }
-                        <th scope="col" class="text-center">Total</th>
-                        <th scope="col"></th>
-                    </tr>
-                    <tr>
-                        <th scope="col"></th>
-                        @if (ViewBag.StartOfFortnight != null && ViewBag.EndOfFortnight != null)
-                        {
-                            @for (DateTime date = (DateTime)ViewBag.StartOfFortnight; date <= (DateTime)ViewBag.EndOfFortnight; date = date.AddDays(1))
-                            {
-                                var dayOfWeek = date.DayOfWeek;
-                                var dayClass = (dayOfWeek == DayOfWeek.Saturday || dayOfWeek == DayOfWeek.Sunday) ? "table-secondary" : "";
-                                <th scope="col" class="@dayClass text-center">@date.ToString("dddd", new System.Globalization.CultureInfo("pt-BR"))</th>
-                            }
-                        }
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @for (int i = 0; i < 6; i++)
-                    {
-                        var totalHoursForRow = 0;
+                            Gerenciar departamentos
+                        </a>
+                    </li>
+                    <li class="nav-item-lista">
+                        <a asp-area="Admin" asp-controller="WBS" asp-action="Index" class="text-secondary text-decoration-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear"
+                                 viewBox="0 0 16 16">
+                                <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0" />
+                                <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z" />
+                            </svg>
+                            Gerenciar WBS
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </aside>
+        <div class="bd-cheatsheet bg-body">
+            <section id="content">
+                <main class="main-espace">
+                    <section class="content">
+                        <div class="form-container">
+                            <div class="btn-toolbar mb-2 mb-md-0 btn-submit">
+                                <div class="btn-group mr-2">
+                                </div>
+                                <div class="btn-group mr-4">
+                                    <input type="date" class="form-control date-btn">
+                                    <a asp-area="Admin" asp-controller="Admin" asp-action="Index" class="btn btn-sm btn-outline-secondary save-btn">
+                                        SALVAR
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                             class="bi bi-floppy" viewBox="0 0 16 16">
+                                            <path d="M11 2H9v3h2z" />
+                                            <path d="M1.5 0h11.586a1.5 1.5 0 0 1 1.06.44l1.415 1.414A1.5 1.5 0 0 1 16 2.914V14.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 14.5v-13A1.5 1.5 0 0 1 1.5 0M1 1.5v13a.5.5 0 0 0 .5.5H2v-4.5A1.5 1.5 0 0 1 3.5 9h9a1.5 1.5 0 0 1 1.5 1.5V15h.5a.5.5 0 0 0 .5-.5V2.914a.5.5 0 0 0-.146-.353l-1.415-1.415A.5.5 0 0 0 13.086 1H13v4.5A1.5 1.5 0 0 1 11.5 7h-7A1.5 1.5 0 0 1 3 5.5V1H1.5a.5.5 0 0 0-.5.5m3 4a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5V1H4zM3 15h10v-4.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </section>
+
+            <div class="container mts-4">
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <tr>
+                            <th class="colour-main">Código WBS</th>
+                            <th class="colour-main" readonly>sáb 01</th>
+                            <th class="colour-main" readonly>dom 02</th>
+                            <th class="colour-main">seg 03</th>
+                            <th class="colour-main">ter 04</th>
+                            <th class="colour-main">qua 05</th>
+                            <th class="colour-main">qui 06</th>
+                            <th class="colour-main">sex 07</th>
+                            <th class="colour-main" readonly>sáb 08</th>
+                            <th class="colour-main" readonly>dom 09</th>
+                            <th class="colour-main">seg 10</th>
+                            <th class="colour-main">ter 11</th>
+                            <th class="colour-main">qua 12</th>
+                            <th class="colour-main">qui 13</th>
+                            <th class="colour-main">sex 14</th>
+                            <th class="colour-main" readonly>sáb 15</th>
+                            <th class="colour-main" readonly>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                         <tr>
                             <td>
                                 <select name="WBS[]" class="form-control">
@@ -119,339 +132,141 @@
                                     }
                                 </select>
                             </td>
-                            @if (ViewBag.StartOfFortnight != null && ViewBag.EndOfFortnight != null)
-                            {
-                                @for (DateTime date = (DateTime)ViewBag.StartOfFortnight; date <= (DateTime)ViewBag.EndOfFortnight; date = date.AddDays(1))
-                                {
-                                    var isWeekend = date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday;
-                                    var dayClass = isWeekend ? "table-secondary" : "";
-                                    <td class="@dayClass text-center">
-                                        <input type="number" name="hours[@i][@date.ToString("dd-MM-yyyy")]" class="form-control hour-input text-center" min="0" max="8" @(isWeekend ? "hidden" : "") />
-                                    </td>
-                                }
-                            }
-                            <td class="text-center">
-                                <span class="total-per-row">@totalHoursForRow</span>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="total" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select name="WBS[]" class="form-control">
+                                    <option value="">Selecione a WBS</option>
+                                    @if (ViewBag.WBSCodes != null && ViewBag.WBSCodes.Count > 0)
+                                    {
+                                        foreach (var wbsCode in ViewBag.WBSCodes)
+                                        {
+                                            <option value="@wbsCode">@wbsCode</option>
+                                        }
+                                    }
+                                </select>
                             </td>
-                        </tr>
-                        totalHoursForRow = 0;
-                    }
-                    <tr>
-                        <td class="text-center">Horas por dia</td>
-                        @if (ViewBag.StartOfFortnight != null && ViewBag.EndOfFortnight != null)
-                        {
-                            var totalPerDay = new Dictionary<DateTime, int>();
-                            @for (DateTime date = (DateTime)ViewBag.StartOfFortnight; date <= (DateTime)ViewBag.EndOfFortnight; date = date.AddDays(1))
-                            {
-                                var dayOfWeek = date.DayOfWeek;
-                                var dayClass = (dayOfWeek == DayOfWeek.Saturday || dayOfWeek == DayOfWeek.Sunday) ? "table-secondary" : "";
-                                var totalPerDayValue = 0;
-                                if (dayOfWeek != DayOfWeek.Saturday && dayOfWeek != DayOfWeek.Sunday)
-                                {
-                                    if (ViewBag.TotalHoursPerDay != null)
-                                    {
-                                        @foreach (var item in ViewBag.TotalHoursPerDay)
-                                        {
-                                            var hoursForDate = item.ContainsKey(date.ToString("yyyy-MM-dd")) ? item[date.ToString("yyyy-MM-dd")] : 0;
-                                            totalPerDayValue += hoursForDate;
-                                        }
-                                    }
-                                }
-                                totalPerDay[date] = totalPerDayValue;
-                                <td class="@dayClass text-center total-per-day">@totalPerDayValue</td>
-                            }
-                            ViewBag.TotalPerDay = totalPerDay;
-                        }
-                        <td class="text-center"></td>
-                        <td class="text-center"></td>
-                    </tr>
-                </tbody>
-            </table>
-            <button type="submit" class="btn custom-btn">Submeter</button>
-        </form>
-    </div>
-</div>
-
-
-@section Scripts {
-    <script>
-        $(document).ready(function () {
-            $('.replicate-btn').click(function () {
-                var rowIndex = $(this).closest('tr').index();
-                var valueToReplicate = null;
-                $('.hour-input').each(function () {
-                    if ($(this).closest('tr').index() === rowIndex && !$(this).prop('hidden')) {
-                        valueToReplicate = $(this).val();
-                        return false;
-                    }
-                });
-                if (valueToReplicate !== null) {
-                    $('input[name^="hours[' + rowIndex + ']"]').each(function () {
-                        if (!$(this).prop('hidden')) {
-                            $(this).val(valueToReplicate);
-                        }
-                    });
-                }
-                calculateTotalPerRow();
-                calculateTotalPerDay();
-            });
-
-            $('.hour-input').change(function () {
-                calculateTotalPerRow();
-                calculateTotalPerDay();
-            });
-
-            function calculateTotalPerRow() {
-                $('.total-per-row').each(function () {
-                    var total = 0;
-                    $(this).closest('tr').find('.hour-input').each(function () {
-                        total += parseInt($(this).val()) || 0;
-                    });
-                    $(this).text(total);
-                });
-            }
-
-            function calculateTotalPerDay() {
-                $('.total-per-day').each(function (index) {
-                    var total = 0;
-                    $('.hour-input').each(function () {
-                        var columnIndex = $(this).closest('td').index();
-                        if (columnIndex === index + 1) {
-                            total += parseInt($(this).val()) || 0;
-                        }
-                    });
-                    $(this).text(total);
-                });
-            }
-        });
-    </script>
-}
-
-@* @* ﻿@{
-    ViewData["Title"] = "Lançamento de Horas";
-}
-
-@* <head>
-
-    <link rel="stylesheet" href="~/css/LancamentoHoras.css" asp-append-version="true" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-</head>
-<header>
-    <link rel="stylesheet" href="~/css/Header.css" asp-append-version="true" />
-    <div class="header">
-        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" class="logout-form">
-            <button type="submit" class="btn">Sair</button>
-        </form>
-        <img src="~/images/icones/profile-2.svg" class="icone-usuario" />
-        <img src="~/images/avanacle-logo.png" class="avanacle-logo" />
-    </div>
-</header>
-<body> *
-<div class="text-center">
-    <h1>@ViewData["Title"]</h1>
-    <div class="container mt-5">
-        <div class="row mb-3 justify-content-between align-content-around">
-            <div class="col-auto">
-                <form method="post" asp-action="PreviousFortnight" class="inline-form">
-                    <input type="hidden" name="currentStartOfFortnight" value="@ViewBag.StartOfFortnight.ToString("o")" />
-                    <button type="submit" class="btn custom-btn">Previous Fortnight</button>
-                </form>
-            </div>
-            <div class="col-auto">
-                <form method="post" asp-action="SelectFortnight" class="inline-form">
-                    <select name="selectedDate" class="form-control custom-select" onchange="this.form.submit()">
-                        @{
-                            var minDate = new DateTime(2024, 1, 1);
-                            var maxDate = new DateTime(2024, 12, 31);
-                            var currentYear = maxDate.Year;
-                            var startYear = minDate.Year;
-                        }
-                        @for (int year = startYear; year <= currentYear; year++)
-                        {
-                            @for (int month = 1; month <= 12; month++)
-                            {
-                                var firstHalf = new DateTime(year, month, 1).ToString("o");
-                                var secondHalf = new DateTime(year, month, 16).ToString("o");
-
-                                if (new DateTime(year, month, 1) >= minDate && new DateTime(year, month, 1) <= maxDate)
-                                {
-                                    <option value="@firstHalf" selected="@((ViewBag.StartOfFortnight?.Month == month && ViewBag.StartOfFortnight?.Year == year && ViewBag.StartOfFortnight?.Day == 1) ? "selected" : null)">
-                                        @($"{year} - {month} (1st Fortnight)")
-                                    </option>
-                                }
-                                if (new DateTime(year, month, 16) >= minDate && new DateTime(year, month, 16) <= maxDate)
-                                {
-                                    <option value="@secondHalf" selected="@((ViewBag.StartOfFortnight?.Month == month && ViewBag.StartOfFortnight?.Year == year && ViewBag.StartOfFortnight?.Day == 16) ? "selected" : null)">
-                                        @($"{year} - {month} (2nd Fortnight)")
-                                    </option>
-                                }
-                            }
-                        }
-                    </select>
-                </form>
-            </div>
-            <div class="col-auto">
-                <form method="post" asp-action="NextFortnight" class="inline-form">
-                    <input type="hidden" name="currentStartOfFortnight" value="@ViewBag.StartOfFortnight.ToString("o")" />
-                    <button type="submit" class="btn custom-btn">Next Fortnight</button>
-                </form>
-            </div>
-        </div>
-        <div class="table-container">
-            <form method="post" asp-action="LancamentoHoras">
-                <table class="table table-bordered table-responsive">
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col">Código WBS</th>
-                            @if (ViewBag.StartOfFortnight != null && ViewBag.EndOfFortnight != null)
-                            {
-                                @for (DateTime date = (DateTime)ViewBag.StartOfFortnight; date <= (DateTime)ViewBag.EndOfFortnight; date = date.AddDays(1))
-                                {
-                                    var dayOfWeek = date.DayOfWeek;
-                                    var dayClass = (dayOfWeek == DayOfWeek.Saturday || dayOfWeek == DayOfWeek.Sunday) ? "table-secondary" : "";
-                                    <th scope="col" class="@dayClass text-center">@date.ToString("dd/MM/yyyy")</th>
-                                }
-                            }
-                            <th scope="col" class="text-center">Total</th>
-                            <th scope="col"></th>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="total" readonly></td>
                         </tr>
                         <tr>
-                            <th scope="col"></th>
-                            @if (ViewBag.StartOfFortnight != null && ViewBag.EndOfFortnight != null)
-                            {
-                                @for (DateTime date = (DateTime)ViewBag.StartOfFortnight; date <= (DateTime)ViewBag.EndOfFortnight; date = date.AddDays(1))
-                                {
-                                    var dayOfWeek = date.DayOfWeek;
-                                    var dayClass = (dayOfWeek == DayOfWeek.Saturday || dayOfWeek == DayOfWeek.Sunday) ? "table-secondary" : "";
-                                    <th scope="col" class="@dayClass text-center">@date.ToString("dddd", new System.Globalization.CultureInfo("en-US"))</th>
-                                }
-                            }
-                            <th scope="col"></th>
-                            <th scope="col"></th>
+                            <td>
+                                <select name="WBS[]" class="form-control">
+                                    <option value="">Selecione a WBS</option>
+                                    @if (ViewBag.WBSCodes != null && ViewBag.WBSCodes.Count > 0)
+                                    {
+                                        foreach (var wbsCode in ViewBag.WBSCodes)
+                                        {
+                                            <option value="@wbsCode">@wbsCode</option>
+                                        }
+                                    }
+                                </select>
+                            </td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="total" readonly></td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        @for (int i = 0; i < 6; i++)
-                        {
-                            var totalHoursForRow = 0;
-                            <tr>
-                                <td>
-                                    <select name="WBS[]" class="form-control">
-                                        <option value="">Selecione a WBS</option>
-                                        @if (ViewBag.WBSCodes != null && ViewBag.WBSCodes.Count > 0)
-                                        {
-                                            foreach (var wbsCode in ViewBag.WBSCodes)
-                                            {
-                                                <option value="@wbsCode">@wbsCode</option>
-                                            }
-                                        }
-                                    </select>
-                                </td>
-                                @if (ViewBag.StartOfFortnight != null && ViewBag.EndOfFortnight != null)
-                                {
-                                    @for (DateTime date = (DateTime)ViewBag.StartOfFortnight; date <= (DateTime)ViewBag.EndOfFortnight; date = date.AddDays(1))
-                                    {
-                                        var isWeekend = date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday;
-                                        var dayClass = isWeekend ? "table-secondary" : "";
-                                        <td class="@dayClass text-center">
-                                            <input type="number" name="hours[@i][@date.ToString("yyyy-MM-dd")]" class="form-control hour-input text-center" min="0" max="8" @(isWeekend ? "hidden" : "") />
-                                        </td>
-                                    }
-                                }
-                                <td class="text-center">
-                                    <span class="total-per-row">@totalHoursForRow</span>
-                                </td>
-                            </tr>
-                            totalHoursForRow = 0;
-                        }
                         <tr>
-                            <td class="text-center">Horas por dia</td>
-                            @if (ViewBag.StartOfFortnight != null && ViewBag.EndOfFortnight != null)
-                            {
-                                var totalPerDay = new Dictionary<DateTime, int>();
-                                @for (DateTime date = (DateTime)ViewBag.StartOfFortnight; date <= (DateTime)ViewBag.EndOfFortnight; date = date.AddDays(1))
-                                {
-                                    var dayOfWeek = date.DayOfWeek;
-                                    var dayClass = (dayOfWeek == DayOfWeek.Saturday || dayOfWeek == DayOfWeek.Sunday) ? "table-secondary" : "";
-                                    var totalPerDayValue = 0;
-                                    if (dayOfWeek != DayOfWeek.Saturday && dayOfWeek != DayOfWeek.Sunday)
+                            <td>
+                                <select name="WBS[]" class="form-control">
+                                    <option value="">Selecione a WBS</option>
+                                    @if (ViewBag.WBSCodes != null && ViewBag.WBSCodes.Count > 0)
                                     {
-                                        if (ViewBag.TotalHoursPerDay != null)
+                                        foreach (var wbsCode in ViewBag.WBSCodes)
                                         {
-                                            @foreach (var item in ViewBag.TotalHoursPerDay)
-                                            {
-                                                var hoursForDate = item.ContainsKey(date.ToString("yyyy-MM-dd")) ? item[date.ToString("yyyy-MM-dd")] : 0;
-                                                totalPerDayValue += hoursForDate;
-                                            }
+                                            <option value="@wbsCode">@wbsCode</option>
                                         }
                                     }
-                                    totalPerDay[date] = totalPerDayValue;
-                                    <td class="@dayClass text-center total-per-day">@totalPerDayValue</td>
-                                }
-                                ViewBag.TotalPerDay = totalPerDay;
-                            }
-                            <td class="text-center"></td>
-                            <td class="text-center"></td>
+                                </select>
+                            </td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number"></td>
+                            <td><input type="number" class="input-number" readonly></td>
+                            <td><input type="number" class="total" readonly></td>
+                        </tr>
+                        <tr>
+                            <td class="total-hour">
+                                <input class="textColumn total-hour" type="text" value="Total de horas" readonly>
+                            </td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="total colour-main" readonly></td>
+                            <td><input type="number" class="grand-total colour-main" readonly></td>
                         </tr>
                     </tbody>
                 </table>
-                <button type="submit" class="btn custom-btn">Submeter</button>
-            </form>
+
+            </div>
         </div>
     </div>
-</div>
 
-@section Scripts {
-    <script>
-        $(document).ready(function () {
-            $('.replicate-btn').click(function () {
-                var rowIndex = $(this).closest('tr').index();
-                var valueToReplicate = null;
-                $('.hour-input').each(function () {
-                    if ($(this).closest('tr').index() === rowIndex && !$(this).prop('hidden')) {
-                        valueToReplicate = $(this).val();
-                        return false;
-                    }
-                });
-                if (valueToReplicate !== null) {
-                    $('input[name^="hours[' + rowIndex + ']"]').each(function () {
-                        if (!$(this).prop('hidden')) {
-                            $(this).val(valueToReplicate);
-                        }
-                    });
-                }
-                calculateTotalPerRow();
-                calculateTotalPerDay();
-            });
-
-            $('.hour-input').change(function () {
-                calculateTotalPerRow();
-                calculateTotalPerDay();
-            });
-
-            function calculateTotalPerRow() {
-                $('.total-per-row').each(function () {
-                    var total = 0;
-                    $(this).closest('tr').find('.hour-input').each(function () {
-                        total += parseInt($(this).val()) || 0;
-                    });
-                    $(this).text(total);
-                });
-            }
-
-            function calculateTotalPerDay() {
-                $('.total-per-day').each(function (index) {
-                    var total = 0;
-                    $('.hour-input').each(function () {
-                        var columnIndex = $(this).closest('td').index();
-                        if (columnIndex === index + 1) {
-                            total += parseInt($(this).val()) || 0;
-                        }
-                    });
-                    $(this).text(total);
-                });
-            }
-        });
-    </script>
-}
-</body> *@ 
+    <script src="~/js/cheatsheet.js"></script>
+    <script src="~/js/main.js"></script>
+</body>

@@ -37,12 +37,36 @@
       "PackagePath": "staticwebassets\\css\\Login.css"
     },
     {
+      "Id": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\css\\RegistroHoras\\AdminHoras.css",
+      "PackagePath": "staticwebassets\\css\\RegistroHoras\\AdminHoras.css"
+    },
+    {
+      "Id": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\css\\RegistroHoras\\GestorHoras.css",
+      "PackagePath": "staticwebassets\\css\\RegistroHoras\\GestorHoras.css"
+    },
+    {
+      "Id": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\css\\RegistroHoras\\Header.css",
+      "PackagePath": "staticwebassets\\css\\RegistroHoras\\Header.css"
+    },
+    {
+      "Id": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\css\\RegistroHoras\\RegHoras.css",
+      "PackagePath": "staticwebassets\\css\\RegistroHoras\\RegHoras.css"
+    },
+    {
+      "Id": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\css\\RegistroHoras\\StyleTable.css",
+      "PackagePath": "staticwebassets\\css\\RegistroHoras\\StyleTable.css"
+    },
+    {
       "Id": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\css\\WBS.css",
       "PackagePath": "staticwebassets\\css\\WBS.css"
     },
     {
       "Id": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\css\\WBSIndex.css",
       "PackagePath": "staticwebassets\\css\\WBSIndex.css"
+    },
+    {
+      "Id": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\favicon.ico",
@@ -61,12 +85,24 @@
       "PackagePath": "staticwebassets\\images\\icones\\profile-2.svg"
     },
     {
+      "Id": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\js\\cheatsheet.js",
+      "PackagePath": "staticwebassets\\js\\cheatsheet.js"
+    },
+    {
+      "Id": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\js\\main.js",
+      "PackagePath": "staticwebassets\\js\\main.js"
+    },
+    {
       "Id": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
       "Id": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\lib\\bootstrap\\boostrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\boostrap.min.css"
     },
     {
       "Id": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",

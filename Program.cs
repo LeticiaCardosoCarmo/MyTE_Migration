@@ -15,13 +15,7 @@ builder.Services.AddDbContext<AppDbContext>((options) => options.UseSqlServer(bu
 
 builder.Services.AddDbContext<LoginDbContext>((options) => options.UseSqlServer(builder.Configuration["ConnectionStrings:AnotherConnection"]));
 
-//builder.Services.AddIdentity()
-//    .AddEntityFrameworkStores<AppDbContext>()
-//    .AddDefaultTokenProviders();
-
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddRoles<IdentityRole>().AddEntityFrameworkStores<LoginDbContext>().AddDefaultTokenProviders();
-//builder.Services.AddDefaultIdentity<IdentityUser, IdentityRole>().AddRoles<IdentityRole>()
-//.AddEntityFrameworkStores<LoginDbContext>();
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
@@ -65,13 +59,7 @@ builder.Services.AddAuthorization(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-//if (!app.Environment.IsDevelopment())
-//{
-//    app.UseExceptionHandler("/Home/Error");
-//    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-//    app.UseHsts();
-//}
+
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
@@ -91,9 +79,7 @@ app.UseAuthentication();
 
 app.UseAuthorization();
 
-//app.MapControllerRoute(
-//    name: "default",
-//    pattern: "{controller=Home}/{action=Index}/{id?}");
+
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(

@@ -1,8 +1,5 @@
 ﻿@model CreateFuncionarioViewModel
 
-@* @model IEnumerable<CreateFuncionarioViewModel> *@
-
-
 <head>
 
     <link rel="stylesheet" href="~/css/Funcionario.css" asp-append-version="true" />
@@ -26,7 +23,7 @@
             <nav class="nav-nav">
                 <ul class="container-nav nav nav-pills flex-column mt-2">
                     <li class="nav-item-lista">
-                        <a href="#" class="text-secondary text-decoration-none">
+                        <a asp-area="Admin" asp-controller="HorasTrabalhadas" asp-action="LancamentoHoras" class="text-secondary text-decoration-none">
                             <i class="nav-bi bi-clock"></i>Lançamento de horas
                         </a>
                     </li>
@@ -53,30 +50,32 @@
                 <div class="form-container">
                     <form asp-action="Create" method="post">
                         <div>
-                            <label asp-for="Funcionario_NomeCompleto"></label>
-                            <input asp-for="Funcionario_NomeCompleto" />
+                            <label asp-for="Funcionario_NomeCompleto">Nome</label>
+                            <input asp-for="Funcionario_NomeCompleto" type="text"/>
                         </div>
                         <div>
-                            <label asp-for="Funcionario_Email"></label>
-                            <input asp-for="Funcionario_Email" />
+                            <label asp-for="Funcionario_Email">Email</label>
+                            <input asp-for="Funcionario_Email" type="text"/>
                         </div>
                         <div>
-                            <label asp-for="Funcionario_DataContratacao"></label>
+                            <label asp-for="Funcionario_DataContratacao">Data de Contratação</label>
                             <input asp-for="Funcionario_DataContratacao" type="date" />
                         </div>
                         <div>
-                            <label asp-for="Departamento_ID"></label>
-                            <input asp-for="Departamento_ID" />
+                            <label asp-for="Departamento_ID">ID Departamento</label>
+                            <input asp-for="Departamento_ID" type="text"/>
                         </div>
                         <div>
-                            <label asp-for="Password"></label>
+                            <label asp-for="Password">Senha</label>
                             <input asp-for="Password" type="password" />
                         </div>
                         <div>
                             <label asp-for="Role"></label>
                             <select asp-for="Role" asp-items="@(ViewData["Roles"] as IEnumerable<SelectListItem>)"></select>
                         </div>
-                        <button type="submit">Create</button>
+                        <div class="form-group">
+                            <input type="submit" value="Salvar" class="save" />
+                        </div>
                     </form>
                 </div>
             </section>

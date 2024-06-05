@@ -5,12 +5,8 @@
 }
 
 <head>
-
     <link rel="stylesheet" href="~/css/WBSIndex.css" asp-append-version="true" />
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-
 </head>
 <header>
     <link rel="stylesheet" href="~/css/Header.css" asp-append-version="true" />
@@ -23,14 +19,12 @@
     </div>
 </header>
 <body>
-
     <div class="container">
-
         <aside class="sidebar">
             <nav class="nav-nav">
                 <ul class="container-nav nav nav-pills flex-column mt-2">
                     <li class="nav-item-lista">
-                        <a href="#" class="text-secondary text-decoration-none">
+                        <a asp-area="Admin" asp-controller="HorasTrabalhadas" asp-action="LancamentoHoras" class="text-secondary text-decoration-none">
                             <i class="nav-bi bi-clock"></i>Lançamento de horas
                         </a>
                     </li>
@@ -52,40 +46,21 @@
                 </ul>
             </nav>
         </aside>
-
     </div>
-
-
     <main class="main-content">
-
         <section class="content">
-
             <div class="header-wbs">
-
-
                 <a asp-action="Create" class="newBtn">
-
                     Novo
-
                     <i class="bi bi-plus-circle"></i>
-
                 </a>
-
             </div>
             <table>
                 <thead>
                     <tr>
-                        <th>
-                            ID
-
-                        </th>
-                        <th>
-                            Código
-
-                        </th>
-                        <th>
-                            Descrição
-                        </th>
+                        <th>ID</th>
+                        <th>Código</th>
+                        <th>Descrição</th>
                         <th>Tipo</th>
                     </tr>
                 </thead>
@@ -93,18 +68,9 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td readonly>
-                                @item.WBS_ID
-
-                            </td>
-                            <td>
-                                @item.WBS_Codigo
-
-                            </td>
-                            <td>
-                                @item.WBS_Descricao
-
-                            </td>
+                            <td readonly>@item.WBS_ID</td>
+                            <td>@item.WBS_Codigo</td>
+                            <td>@item.WBS_Descricao</td>
                             <td>@item.WBS_Tipo</td>
                             <td>
                                 <a asp-action="Update" asp-route-id="@item.WBS_ID" class="editBtn">

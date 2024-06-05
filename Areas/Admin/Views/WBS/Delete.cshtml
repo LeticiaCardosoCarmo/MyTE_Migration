@@ -21,12 +21,11 @@
     </div>
 </header>
 <div class="container">
-
     <aside class="sidebar">
         <nav class="nav-nav">
             <ul class="container-nav nav nav-pills flex-column mt-2">
                 <li class="nav-item-lista">
-                    <a href="#" class="text-secondary text-decoration-none">
+                    <a asp-area="Admin" asp-controller="HorasTrabalhadas" asp-action="LancamentoHoras" class="text-secondary text-decoration-none">
                         <i class="nav-bi bi-clock"></i>Lançamento de horas
                     </a>
                 </li>
@@ -59,7 +58,6 @@
                         @Html.DisplayFor(model => model.WBS_Descricao)
                     </dd>
                 </dl>
-
                 <form asp-action="Delete">
                     <input type="hidden" asp-for="WBS_ID" />
                     <input type="submit" value="Deletar" class="save" />
