@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "MEuILlX53uTVaW3ImaynESC1qNTSXhiOiPO5FA4VvkU=",
+  "Hash": "/YsOZb4pGQPLg8JMNIDcBhd+P7UWQRwRTSMO2BS00Xk=",
   "Source": "MyTE_Migration",
   "BasePath": "_content/MyTE_Migration",
   "Mode": "Default",
@@ -148,6 +148,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\FuncionarioIndex.css"
+    },
+    {
+      "Identity": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\css\\GestorProjeto.css",
+      "SourceId": "MyTE_Migration",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\",
+      "BasePath": "_content/MyTE_Migration",
+      "RelativePath": "css/GestorProjeto.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\GestorProjeto.css"
     },
     {
       "Identity": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\css\\Header.css",

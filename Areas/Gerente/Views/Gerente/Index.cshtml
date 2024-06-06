@@ -2,7 +2,7 @@
 
     <header>
         <link rel="stylesheet" href="~/css/Header.css" asp-append-version="true" />
-        <link rel="stylesheet" href="~/css/AreaAdmin.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/GestorProjeto.css" asp-append-version="true" />
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
@@ -24,6 +24,11 @@
                             <i class="nav-bi bi-clock"></i>Lançamento de horas
                         </a>
                     </li>
+                    <li class="nav-item-lista">
+                        <a asp-area="Gerente" asp-controller="Gerente" asp-action="Relatorio" class="text-secondary text-decoration-none">
+                            <i class="nav-bi bi-activity"></i>Relatório
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </aside>
@@ -32,7 +37,6 @@
     <main class="main-content">
         <section class="content">
             <div class="ola">Olá, Gerente!</div>
-        </section>
+        </section>            
     </main>
-
 </body>

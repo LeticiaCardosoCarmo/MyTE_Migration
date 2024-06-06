@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\css\\FuncionarioIndex.css"
     },
     {
+      "Id": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\css\\GestorProjeto.css",
+      "PackagePath": "staticwebassets\\css\\GestorProjeto.css"
+    },
+    {
       "Id": "C:\\Users\\l.cardoso.do.carmo\\Desktop\\MyTE_Migration\\wwwroot\\css\\Header.css",
       "PackagePath": "staticwebassets\\css\\Header.css"
     },

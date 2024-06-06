@@ -11,5 +11,10 @@ namespace MyTE_Migration.Areas.Gerente.Controllers
         {
             return View();
         }
+
+        public IActionResult Relatorio()
+        {
+            return View();
+        }
     }
 }

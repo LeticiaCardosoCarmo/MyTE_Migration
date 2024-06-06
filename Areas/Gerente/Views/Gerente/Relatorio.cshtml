@@ -1,0 +1,40 @@
+﻿<body>
+
+    <header>
+        <link rel="stylesheet" href="~/css/Header.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/GestorProjeto.css" asp-append-version="true" />
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <div class="header">
+            <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" class="logout-form">
+                <button type="submit" class="btn">Sair</button>
+            </form>
+            <img src="~/images/icones/profile-2.svg" class="icone-usuario" />
+            <img src="~/images/avanacle-logo.png" class="avanacle-logo" />
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav class="nav-nav">
+                <ul class="container-nav nav nav-pills flex-column mt-2">
+                    <li class="nav-item-lista">
+                        <a asp-area="Gerente" asp-controller="HorasTrabalhadas" asp-action="LancamentoHoras" class="text-secondary text-decoration-none">
+                            <i class="nav-bi bi-clock"></i>Lançamento de horas
+                        </a>
+                    </li>
+                    <li class="nav-item-lista">
+                        <a asp-area="Gerente" asp-controller="Gerente" asp-action="Relatorio" class="text-secondary text-decoration-none">
+                            <i class="nav-bi bi-activity"></i>Relatório
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+    <main class="main-content">
+        <iframe title="MyTE" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=c7533ba5-e1cc-4ea7-a331-7f6540c97d2b&autoAuth=true&ctid=cf36141c-ddd7-45a7-b073-111f66d0b30c" frameborder="0" allowFullScreen="true"></iframe>
+    </main>
+
+</body>
