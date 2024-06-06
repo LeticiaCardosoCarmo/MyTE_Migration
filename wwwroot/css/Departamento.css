@@ -15,16 +15,17 @@
 
 
 .sidebar {
-    width: 320px;
+   width: 320px;
     background-color: #fff;
     border-right: 1px solid #ddd;
-    padding-right: 10px;
-    padding-left: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     margin-top: 0px;
+    padding-right: 10px;
+    padding-left: 10px;
+
 }
 
 
@@ -103,6 +104,8 @@ nav ul {
     display: flex;
     justify-content: center;
     align-items: center;
+
+
 }
 
 
@@ -111,9 +114,11 @@ nav ul {
     padding: 20px;
     border-radius: 10px;
     margin-left: 40px;
-    width: 600px;
+    width: 700px;
     position: relative;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+
 }
 
 .form-group {
@@ -125,8 +130,8 @@ nav ul {
 
 
 label {
-    width: 150px; /* Ajuste a largura conforme necessário */
-
+    width: 150px;
+    margin-top: 10px;
     font-size: 18px;
 }
 

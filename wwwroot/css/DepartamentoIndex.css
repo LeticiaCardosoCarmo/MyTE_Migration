@@ -129,21 +129,6 @@ nav ul {
 }
 
 
-#search {
-    padding: 10px;
-    border: 1px solid #FF5800;
-    border-radius: 5px;
-    width: 300px;
-}
-
-
-
-    #search::placeholder {
-        color: #ff6f00;
-    }
-
-
-
 .newBtn {
     background-color: #FF5800;
     color: white;
