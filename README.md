@@ -9,7 +9,7 @@ O objetivo deste projeto é criar uma aplicação com a estrutura MVC para cadas
 
 Requisitos principais do projeto:
 * Ter três acessos diferentes para três tipos de atores: ***usuário, administrador, gestor de projetos***. Estes atores acessarão áreas restritas diferentes da aplicação.
-* O Administrador deve realizar adição, edição e exclusão de funcionários, wbs e departamentos.
+* O ***administrador*** deve realizar adição, edição e exclusão de funcionários, wbs e departamentos.
 * Todos os funcionários devem conseguir lançar suas horas trabalhadas que deverão ser armazenadas em um banco de dados.
   
 ## Funcionalidades ✨
