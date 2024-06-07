@@ -76,7 +76,7 @@
                             <span asp-validation-for="Departamento_ID" class="text-danger"></span>
                         </div>
                         <div>
-                            <label asp-for="Role"></label>
+                            <label asp-for="Role">Acesso</label>
                             <select asp-for="Role" asp-items="@(ViewData["Roles"] as IEnumerable<SelectListItem>)"></select>
                             <span asp-validation-for="Role" class="text-danger"></span>
                         </div>
